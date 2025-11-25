@@ -1,8 +1,9 @@
 .navegacion {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 20px;
+  flex-wrap: wrap;
+  justify-self: center;
 }
 
 .navegacion a {
@@ -20,8 +21,113 @@
   box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.25);
 }
 
+/* Grid interno del navbar */
+.navbar-container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-box {
+  justify-self: end;
+}
+
+/* Hero */
+.hero {
+  /* Keep original light gradient background; use dark text for readability */
+  background: linear-gradient(
+    180deg,
+    rgba(126, 103, 158, 0.12),
+    rgba(126, 103, 158, 0.04)
+  );
+  color: #2a213a;
+}
+
+.hero .lead {
+  color: rgba(42, 33, 58, 0.9);
+}
+
+.text-purple {
+  color: #7e679e !important;
+}
+
+.feature-card {
+  border: 0;
+  background: #fff;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Reveal animation */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: all 0.6s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* Gallery */
+.gallery-item {
+  cursor: pointer;
+  transition: transform 0.18s ease;
+}
+.gallery-item:hover {
+  transform: scale(1.02);
+}
+
+/* Responsive breakpoints for navbar and search */
+@media (max-width: 767px) {
+  .navbar-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    text-align: center;
+    row-gap: 8px;
+    padding: 10px 12px;
+  }
+
+  .navbar-brand {
+    justify-self: center;
+  }
+
+  .navegacion {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .search-box {
+    justify-self: stretch;
+    width: 100%;
+  }
+
+  .search-box .form-control {
+    width: calc(100% - 90px);
+  }
+  .search-box .btn {
+    width: 70px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .search-box .form-control {
+    width: 220px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .search-box .form-control {
+    width: 320px;
+  }
+}
+
 .btn {
-  color: #f2f2f2;
+  color: black;
 }
 
 .btn:hover {
@@ -129,17 +235,76 @@ body {
   box-shadow: 0 0 6px rgba(140, 105, 200, 0.6);
 }
 
-/* Botón */
+/* Botones: diseño estándar para toda la web */
+:root {
+  --btn-bg: #8f74c5;
+  --btn-hover: #a88ae6;
+  --btn-shadow: rgba(203, 183, 255, 0.6);
+  --btn-text: #ffffff;
+}
+
+/* Apply to Bootstrap buttons and native buttons/inputs */
+.btn,
+button,
+input[type="button"],
+input[type="submit"],
 .boton-enviar {
-  background-color: #8f74c5;
-  color: white;
+  background-color: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
   padding: 12px 25px;
   font-size: 1.1rem;
   border-radius: 8px;
-  transition: 0.2s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.15s ease, box-shadow 0.18s ease,
+    background-color 0.12s ease;
 }
 
+.btn:hover,
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
 .boton-enviar:hover {
-  background-color: #a88ae6;
-  box-shadow: 0 0 10px #cbb7ff;
+  background-color: var(--btn-hover) !important;
+  box-shadow: 0 10px 30px var(--btn-shadow);
+  transform: translateY(-3px);
+}
+
+.btn:active,
+button:active,
+input[type="button"]:active,
+input[type="submit"]:active,
+.boton-enviar:active {
+  transform: translateY(-1px) scale(0.998);
+}
+
+/* Focus for accessibility */
+.btn:focus,
+button:focus,
+input[type="button"]:focus,
+input[type="submit"]:focus,
+.boton-enviar:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(142, 114, 197, 0.18),
+    0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* Disabled state */
+.btn[disabled],
+.btn:disabled,
+button[disabled],
+input[disabled],
+.boton-enviar[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Small buttons variant keeps spacing */
+.btn-sm,
+.small-btn {
+  padding: 8px 14px;
+  font-size: 0.95rem;
 }
