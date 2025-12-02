@@ -23,7 +23,7 @@
           <div class="container navbar-container">
             <a class="navbar-brand" href="index.html">
               <img
-                src="../img/logo.svg"
+                src="../img/logo.png"
                 alt="TiendaMiaow"
                 width="50"
                 height="50"
@@ -64,6 +64,7 @@
             <div class="col-md-6 mb-3">
               <label class="form-label">Nombre</label>
               <input
+                name="nombre"
                 type="text"
                 class="form-control input-contacto"
                 placeholder="Tu nombre"
@@ -74,6 +75,7 @@
             <div class="col-md-6 mb-3">
               <label class="form-label">Apellido</label>
               <input
+                name="apellido"
                 type="text"
                 class="form-control input-contacto"
                 placeholder="Tu apellido"
@@ -85,6 +87,7 @@
           <div class="mb-3">
             <label class="form-label">Correo electrónico</label>
             <input
+              name="email"
               type="email"
               class="form-control input-contacto"
               placeholder="correo@ejemplo.com"
@@ -95,6 +98,7 @@
           <div class="mb-3">
             <label class="form-label">Asunto</label>
             <input
+              name="asunto"
               type="text"
               class="form-control input-contacto"
               placeholder="Motivo del mensaje"
@@ -105,6 +109,7 @@
           <div class="mb-4">
             <label class="form-label">Mensaje</label>
             <textarea
+              name="mensaje"
               class="form-control input-contacto"
               rows="5"
               placeholder="Escribe tu mensaje aquí..."
@@ -173,7 +178,8 @@
         </div>
       </div>
     </footer>
-    <script src="./js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/contacto.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

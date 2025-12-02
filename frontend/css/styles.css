@@ -308,3 +308,23 @@ input[disabled],
   padding: 8px 14px;
   font-size: 0.95rem;
 }
+
+.swal2-popup {
+  border-radius: 30px !important; /* Ajusta el tamaño aquí */
+}
+
+/* Botón normal */
+.swal2-confirm {
+  border-radius: 20px !important;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+/* Hover suave */
+.swal2-confirm:hover {
+  background-color: #7b62b2 !important; /* Un poquito más oscuro */
+  transform: translateY(-1px); /* Efecto sutil de levantar */
+}
+
+.swal2-cancel {
+  border-radius: 20px !important;
+}
