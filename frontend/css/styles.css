@@ -308,3 +308,36 @@ input[disabled],
   padding: 8px 14px;
   font-size: 0.95rem;
 }
+
+/* Sección de Productos */
+.productos-section {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.producto-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.producto-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.producto-card img {
+  height: 250px;
+  object-fit: cover;
+}
+
+.producto-card .precio {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.producto-card .btn {
+  margin-top: 0.5rem;
+  border-radius: 5px;
+}
