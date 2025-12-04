@@ -14,7 +14,7 @@ if (contactForm) {
 
     try {
       const respuesta = await fetch(
-        "https://tiendamiaow-production.up.railway.app/api/contacto",
+        "https://tiendamiaow-production.up.railway.app",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
