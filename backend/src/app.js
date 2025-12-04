@@ -6,7 +6,7 @@ const app = express();
 
 // 1. DEFINE EL DOMINIO DE TU FRONTEND EN NETLIFY
 // ¡ATENCIÓN!: Reemplaza ESTE valor con tu URL real de Netlify
-const allowedOrigin = "https://strong-choux-120ee2.netlify.app/";
+const allowedOrigin = "https://strong-choux-120ee2.netlify.app";
 
 // 2. CONFIGURACIÓN DE CORS
 const corsOptions = {
