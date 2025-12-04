@@ -1,6 +1,6 @@
 import { Router } from "express";
 import contactoRoutes from "./contacto.routes.js";
-import productosRoutes from "./productos.route.js";
+import productosRoutes from "./productos.routes.js";
 
 console.log("📌 Cargando rutas de contacto...");
 
