@@ -13,17 +13,20 @@ if (contactForm) {
     const mensaje = formData.get("mensaje");
 
     try {
-      const respuesta = await fetch("http://localhost:4000/api/contacto", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          nombre,
-          apellido,
-          email,
-          asunto,
-          mensaje,
-        }),
-      });
+      const respuesta = await fetch(
+        "https://tiendamiaow-production.up.railway.app/",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            nombre,
+            apellido,
+            email,
+            asunto,
+            mensaje,
+          }),
+        }
+      );
 
       const data = await respuesta.json();
 
