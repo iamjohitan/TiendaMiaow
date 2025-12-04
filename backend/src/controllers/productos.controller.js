@@ -6,7 +6,7 @@ export const obtenerTodosLosProductos = async (req, res) => {
     conn = await pool.getConnection();
 
     const [productos] = await conn.query(
-      "SELECT id, nombre, marca, descripcion, precio, imagen FROM productos ORDER BY fecha_creacion DESC"
+      "SELECT id, nombre, marca, descripcion, precio FROM productos ORDER BY fecha_creacion DESC"
     );
 
     res.status(200).json(productos);
