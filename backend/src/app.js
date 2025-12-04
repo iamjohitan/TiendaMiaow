@@ -4,7 +4,7 @@ import router from "./routes/index.js";
 
 const app = express();
 
-const allowedOrigin = "https://strong-choux-120ee2.netlify.app";
+const allowedOrigin = "https://tiendamiaow.netlify.app";
 
 const corsOptions = {
   origin: allowedOrigin,
