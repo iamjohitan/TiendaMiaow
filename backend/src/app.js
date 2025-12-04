@@ -4,7 +4,7 @@ import router from "./routes/index.js";
 
 const app = express();
 
-const allowedOrigin = "https://tiendamiaow.netlify.app";
+const allowedOrigin = "https://tiendamiaow.vercel.app/";
 
 const corsOptions = {
   origin: allowedOrigin,
