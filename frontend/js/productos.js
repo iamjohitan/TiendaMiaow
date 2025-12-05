@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:4000";
+const API_BASE_URL = "https://tiendamiaow-production.up.railway.app";
 const PRODUCTOS_ENDPOINT = "/api/productos";
 
 const productosContainer = document.getElementById("productos-container");

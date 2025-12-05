@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:4000/api/productos";
+const API_URL = "https://tiendamiaow-production.up.railway.app/api/productos";
 
 // 1. ESTADO DEL ENSAMBLE (Las 7 categorías)
 let build = {

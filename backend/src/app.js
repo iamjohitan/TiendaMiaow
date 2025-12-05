@@ -1,4 +1,4 @@
-// backend/app.js (Revertido para Desarrollo Local)
+// backend/app.js
 
 import express from "express";
 import cors from "cors";
@@ -6,13 +6,27 @@ import router from "./routes/index.js";
 
 const app = express();
 
-// 🛑 ELIMINAR O COMENTAR: Las líneas de allowedOrigin y corsOptions son para producción.
-// const allowedOrigin = "https://tiendamiaow.vercel.app";
-// const corsOptions = {...};
-// app.use(cors(corsOptions));
+// 🛑 AQUÍ PONES TU URL DE VERCEL (sin barra al final)
+const allowedOrigins = [
+  "https://tiendamiaow.vercel.app", // Tu frontend en producción
+  "http://localhost:5500", // Tu entorno local (opcional)
+  "http://127.0.0.1:5500",
+];
 
-// 1. Usar app.use(cors()) para desarrollo:
-app.use(cors()); // ⬅️ Permite peticiones desde cualquier origen (localhost:puerto, 127.0.0.1:puerto)
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Permitir solicitudes sin origen (como Postman) o si está en la lista
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Bloqueado por CORS"));
+    }
+  },
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use("/api", router);
