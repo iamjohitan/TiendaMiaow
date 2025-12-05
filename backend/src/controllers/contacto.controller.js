@@ -17,12 +17,16 @@ export const enviarCorreoContacto = async (req, res) => {
     // 2. INTENTAR ENVIAR CORREO
     try {
       const transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",
-        port: 465, // Puerto seguro SSL (es el que mejor funciona en servidores nube)
-        secure: true, // true para puerto 465
+        host: "smtp.gmail.com", // Servidor explícito
+        port: 465, // Puerto seguro (SSL)
+        secure: true, // TRUE es obligatorio para el puerto 465
         auth: {
           user: process.env.MAIL_USER,
           pass: process.env.MAIL_PASS,
+        },
+        // Esto ayuda a evitar problemas de timeouts en algunas redes
+        tls: {
+          rejectUnauthorized: false,
         },
       });
 
