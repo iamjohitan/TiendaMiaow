@@ -1,11 +1,22 @@
-const RAILWAY_API_URL = "https://tiendamiaow-production.up.railway.app";
+// frontend/js/contacto.js
+
+// Asegúrate de que el puerto sea el correcto (4000 para tu backend local)
+const RAILWAY_API_URL = "http://localhost:4000";
 const CONTACT_ENDPOINT = "/api/contacto";
 
-const contactForm = document.querySelector(".contact-form");
+// 🛑 CORRECCIÓN AQUÍ: Usamos la clase nueva del diseño bonito (.contact-form-inner)
+const contactForm = document.querySelector(".contact-form-inner");
 
 if (contactForm) {
   contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    // Efecto visual de carga en el botón
+    const submitBtn = contactForm.querySelector("button[type='submit']");
+    const originalBtnText = submitBtn.innerHTML;
+    submitBtn.innerHTML =
+      '<span class="spinner-border spinner-border-sm"></span> Enviando...';
+    submitBtn.disabled = true;
 
     const formData = new FormData(contactForm);
 
@@ -32,11 +43,9 @@ if (contactForm) {
           text:
             data.message || "Gracias por escribirnos, te responderemos pronto.",
           icon: "success",
-          background: "#f3ecff",
-          color: "#2a213a",
-          confirmButtonText: "Aceptar",
           confirmButtonColor: "#8f74c5",
-          buttonsStyling: true,
+          background: "#fff",
+          color: "#2a213a",
         });
 
         contactForm.reset();
@@ -45,30 +54,32 @@ if (contactForm) {
         try {
           errorData = await respuesta.json();
         } catch (e) {
-          errorData.message = `Error ${respuesta.status}: No se pudo obtener el mensaje de error del servidor.`;
+          errorData.message = `Error ${respuesta.status}: No se pudo obtener respuesta del servidor.`;
         }
 
         Swal.fire({
           title: "Algo salió mal",
           text: errorData.message || "No se pudo enviar el mensaje.",
           icon: "error",
-          background: "#f3ecff",
-          color: "#2a213a",
-          confirmButtonText: "Entendido",
           confirmButtonColor: "#8f74c5",
         });
       }
     } catch (error) {
       Swal.fire({
         title: "Error de Conexión",
-        text: "No se pudo conectar con el servidor de la API. Verifica tu conexión o el estado de Railway.",
+        text: "No se pudo conectar con el servidor (Puerto 4000). Revisa que tu backend esté encendido.",
         icon: "error",
-        background: "#f3ecff",
-        color: "#2a213a",
-        confirmButtonText: "Cerrar",
         confirmButtonColor: "#8f74c5",
       });
       console.error("Error en la solicitud Fetch:", error);
+    } finally {
+      // Restaurar el botón
+      submitBtn.innerHTML = originalBtnText;
+      submitBtn.disabled = false;
     }
   });
+} else {
+  console.error(
+    "❌ Error: No se encontró el formulario en el HTML. Verifica la clase .contact-form-inner"
+  );
 }

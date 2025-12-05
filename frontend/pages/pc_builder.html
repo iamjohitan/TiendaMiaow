@@ -51,7 +51,269 @@
         </nav>
       </div>
     </header>
-    <main></main>
+
+    <main class="container py-5">
+      <div class="text-center mb-5">
+        <span
+          class="badge bg-warning text-dark mb-2 px-3 rounded-pill fw-bold text-uppercase"
+          >Configurador PC</span
+        >
+        <h1 class="display-4 fw-bold text-dark">Arma tu Máquina</h1>
+        <p class="text-muted lead">
+          Selecciona tus componentes y crea la PC perfecta para ti.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <div
+            class="builder-slot p-4 mb-3 d-flex align-items-center gap-4 component-slot"
+            id="slot-cpu"
+            onclick="openModal('cpu')"
+          >
+            <div class="slot-icon-wrapper slot-icon">
+              <i class="bi bi-cpu"></i>
+            </div>
+            <div class="flex-grow-1" id="slot-cpu-content">
+              <h5 class="mb-1 fw-bold text-dark" id="cpu-name">Procesador</h5>
+              <p class="mb-0 text-muted small" id="cpu-price">
+                El cerebro de tu computadora
+              </p>
+            </div>
+            <button
+              class="slot-action-btn add btn btn-sm btn-outline-secondary rounded-circle shadow-sm"
+            >
+              <i class="bi bi-plus-lg"></i>
+            </button>
+          </div>
+
+          <div
+            class="builder-slot p-4 mb-3 d-flex align-items-center gap-4 component-slot"
+            id="slot-mobo"
+            onclick="openModal('mobo')"
+          >
+            <div class="slot-icon-wrapper slot-icon">
+              <i class="bi bi-motherboard"></i>
+            </div>
+            <div class="flex-grow-1" id="slot-mobo-content">
+              <h5 class="mb-1 fw-bold text-dark" id="mobo-name">Placa Madre</h5>
+              <p class="mb-0 text-muted small" id="mobo-price">
+                La base de todo el sistema
+              </p>
+            </div>
+            <button
+              class="slot-action-btn add btn btn-sm btn-outline-secondary rounded-circle shadow-sm"
+            >
+              <i class="bi bi-plus-lg"></i>
+            </button>
+          </div>
+
+          <div
+            class="builder-slot p-4 mb-3 d-flex align-items-center gap-4 component-slot"
+            id="slot-ram"
+            onclick="openModal('ram')"
+          >
+            <div class="slot-icon-wrapper slot-icon">
+              <i class="bi bi-memory"></i>
+            </div>
+            <div class="flex-grow-1" id="slot-ram-content">
+              <h5 class="mb-1 fw-bold text-dark" id="ram-name">Memoria RAM</h5>
+              <p class="mb-0 text-muted small" id="ram-price">
+                Velocidad y multitarea
+              </p>
+            </div>
+            <button
+              class="slot-action-btn add btn btn-sm btn-outline-secondary rounded-circle shadow-sm"
+            >
+              <i class="bi bi-plus-lg"></i>
+            </button>
+          </div>
+
+          <div
+            class="builder-slot p-4 mb-3 d-flex align-items-center gap-4 component-slot"
+            id="slot-gpu"
+            onclick="openModal('gpu')"
+          >
+            <div class="slot-icon-wrapper slot-icon">
+              <i class="bi bi-gpu-card"></i>
+            </div>
+            <div class="flex-grow-1" id="slot-gpu-content">
+              <h5 class="mb-1 fw-bold text-dark" id="gpu-name">
+                Tarjeta Gráfica
+              </h5>
+              <p class="mb-0 text-muted small" id="gpu-price">
+                Potencia visual para juegos
+              </p>
+            </div>
+            <button
+              class="slot-action-btn add btn btn-sm btn-outline-secondary rounded-circle shadow-sm"
+            >
+              <i class="bi bi-plus-lg"></i>
+            </button>
+          </div>
+
+          <div
+            class="builder-slot p-4 mb-3 d-flex align-items-center gap-4 component-slot"
+            id="slot-storage"
+            onclick="openModal('storage')"
+          >
+            <div class="slot-icon-wrapper slot-icon">
+              <i class="bi bi-device-ssd"></i>
+            </div>
+            <div class="flex-grow-1" id="slot-storage-content">
+              <h5 class="mb-1 fw-bold text-dark" id="storage-name">
+                Almacenamiento
+              </h5>
+              <p class="mb-0 text-muted small" id="storage-price">
+                SSD o Disco Duro
+              </p>
+            </div>
+            <button
+              class="slot-action-btn add btn btn-sm btn-outline-secondary rounded-circle shadow-sm"
+            >
+              <i class="bi bi-plus-lg"></i>
+            </button>
+          </div>
+
+          <div
+            class="builder-slot p-4 mb-3 d-flex align-items-center gap-4 component-slot"
+            id="slot-psu"
+            onclick="openModal('psu')"
+          >
+            <div class="slot-icon-wrapper slot-icon">
+              <i class="bi bi-lightning-charge"></i>
+            </div>
+            <div class="flex-grow-1" id="slot-psu-content">
+              <h5 class="mb-1 fw-bold text-dark" id="psu-name">
+                Fuente de Poder
+              </h5>
+              <p class="mb-0 text-muted small" id="psu-price">
+                Energía para tu PC
+              </p>
+            </div>
+            <button
+              class="slot-action-btn add btn btn-sm btn-outline-secondary rounded-circle shadow-sm"
+            >
+              <i class="bi bi-plus-lg"></i>
+            </button>
+          </div>
+
+          <div
+            class="builder-slot p-4 mb-3 d-flex align-items-center gap-4 component-slot"
+            id="slot-case"
+            onclick="openModal('case')"
+          >
+            <div class="slot-icon-wrapper slot-icon">
+              <i class="bi bi-box"></i>
+            </div>
+            <div class="flex-grow-1" id="slot-case-content">
+              <h5 class="mb-1 fw-bold text-dark" id="case-name">Gabinete</h5>
+              <p class="mb-0 text-muted small" id="case-price">
+                La carcasa de tu estilo
+              </p>
+            </div>
+            <button
+              class="slot-action-btn add btn btn-sm btn-outline-secondary rounded-circle shadow-sm"
+            >
+              <i class="bi bi-plus-lg"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div
+            class="card summary-card border-0 shadow-lg rounded-4 p-4 sticky-top"
+            style="top: 100px"
+          >
+            <h5 class="fw-bold mb-4 text-uppercase text-muted small ls-1">
+              Resumen del Pedido
+            </h5>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-secondary">Subtotal:</span>
+              <span class="fw-bold text-dark" id="resumen-subtotal">$0.00</span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <span class="text-secondary">Ensamble:</span>
+              <span
+                class="text-success fw-bold text-uppercase small bg-success bg-opacity-10 px-2 py-1 rounded"
+                >Gratis 🎉</span
+              >
+            </div>
+
+            <hr class="opacity-10 my-4" />
+
+            <div class="text-end mb-4">
+              <small class="text-muted d-block mb-1">Total Estimado</small>
+              <span class="display-6 fw-bold text-primary" id="resumen-total"
+                >$0.00</span
+              >
+            </div>
+
+            <div class="d-grid gap-2">
+              <button
+                class="btn btn-success w-100 py-3 fw-bold mb-2"
+                onclick="cotizarWhatsApp()"
+              >
+                <i class="bi bi-whatsapp me-2"></i> Cotizar por WhatsApp
+              </button>
+              <button
+                class="btn btn-light text-muted py-2"
+                onclick="limpiarTodo()"
+              >
+                <i class="bi bi-trash me-2"></i> Reiniciar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div
+      class="modal fade"
+      id="componentModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable"
+      >
+        <div class="modal-content rounded-4 border-0 shadow-lg">
+          <div class="modal-header border-0 pb-0 pt-4 px-4">
+            <div>
+              <h5 class="modal-title fw-bold" id="modalTitle">
+                Seleccionar Componente
+              </h5>
+              <p class="text-muted small mb-0">
+                Elige una opción de nuestro catálogo.
+              </p>
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body p-4">
+            <div class="input-group mb-4 shadow-sm">
+              <span class="input-group-text bg-white border-0 ps-3"
+                ><i class="bi bi-search text-muted"></i
+              ></span>
+              <input
+                type="text"
+                id="modalSearch"
+                class="form-control border-0 py-2"
+                placeholder="Filtrar por nombre o marca..."
+              />
+            </div>
+
+            <div class="row g-3" id="modalContainer"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer class="footer text-light pt-5 pb-3">
       <div class="container">
         <div class="row">
@@ -82,16 +344,16 @@
           <div class="col-md-4 mb-4 text-center">
             <h5 class="fw-bold">Navegación</h5>
             <ul class="footer-links">
-              <li><a href="index.html">Inicio</a></li>
-              <li><a href="pages/productos.html">Productos</a></li>
-              <li><a href="pages/pc_builder.html">PC Builder</a></li>
-              <li><a href="pages/contacto.html">Contacto</a></li>
+              <li><a href="../index.html">Inicio</a></li>
+              <li><a href="productos.html">Productos</a></li>
+              <li><a href="pc_builder.html">PC Builder</a></li>
+              <li><a href="contacto.html">Contacto</a></li>
             </ul>
           </div>
 
           <div class="col-md-4 mb-4 text-center">
             <h5 class="fw-bold">Contáctanos</h5>
-            <p>Email: soporte@miaow.com</p>
+            <p>Email: soporte.tiendamiaow@gmail.com</p>
             <p>Tel: +57 317 506 7243</p>
             <p>Horario: Todos los dias / 9am – 6pm</p>
           </div>
@@ -104,7 +366,9 @@
         </div>
       </div>
     </footer>
-    <script src="./js/main.js"></script>
+    <script src="../js/pc_builder.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

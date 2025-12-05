@@ -339,3 +339,410 @@ input[disabled],
   transform: translateY(-4px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
+
+/* --- Productos --- */
+/* Fondo del Hero con degradado de marca */
+.hero-section {
+  background: linear-gradient(135deg, #2a213a 0%, #4a3b69 50%, #8f74c5 100%);
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 5rem; /* Espacio para la barra flotante */
+}
+
+/* Patrón de fondo sutil (puntos) */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(#ffffff 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.1;
+}
+
+/* Barra de filtros flotante */
+.floating-filter-bar {
+  margin-top: -3.5rem; /* Sube la barra sobre el banner */
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Inputs personalizados */
+.form-control-custom,
+.form-select-custom {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  transition: all 0.3s ease;
+}
+.form-control-custom:focus,
+.form-select-custom:focus {
+  background-color: #fff;
+  border-color: #8f74c5;
+  box-shadow: 0 0 0 3px rgba(143, 116, 197, 0.1);
+}
+
+/* Botón de limpiar animado */
+.btn-reset {
+  transition: transform 0.3s ease;
+}
+.btn-reset:hover {
+  transform: rotate(-90deg);
+}
+
+/* Estilos Exclusivos para el Nuevo Diseño de Contacto */
+.contact-wrapper {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* Panel Izquierdo (Oscuro) */
+.contact-info-panel {
+  background: linear-gradient(135deg, #2a213a 0%, #4a3b69 100%);
+  color: white;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Círculos decorativos en el fondo */
+.contact-info-panel::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  top: -50px;
+  right: -50px;
+}
+.contact-info-panel::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  bottom: 50px;
+  left: 20px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+.info-item i {
+  background: rgba(255, 255, 255, 0.2);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 15px;
+  transition: all 0.3s ease;
+}
+.info-item:hover i {
+  background: #fff;
+  color: #4a3b69;
+  transform: scale(1.1);
+}
+
+/* Panel Derecho (Formulario) */
+.contact-form-panel {
+  padding: 3rem;
+}
+
+/* Inputs con Iconos */
+.input-group-text {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-right: none;
+  color: #8f74c5;
+}
+.form-control {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-left: none;
+  padding: 0.8rem 1rem;
+}
+.form-control:focus {
+  background: #fff;
+  border-color: #8f74c5;
+  box-shadow: none; /* Quitamos el shadow default */
+}
+.input-group:focus-within {
+  box-shadow: 0 0 0 3px rgba(143, 116, 197, 0.15);
+  border-radius: 0.375rem;
+}
+.input-group:focus-within .input-group-text {
+  border-color: #8f74c5;
+  background: #fff;
+}
+
+@media (max-width: 991px) {
+  .contact-info-panel {
+    padding: 2rem;
+  }
+  .contact-form-panel {
+    padding: 2rem;
+  }
+}
+
+/* INDEX*/
+/* --- ESTILOS NUEVOS PARA EL HOME --- */
+
+/* Animación de flotación para la imagen principal */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.hero-animate-img {
+  animation: float 6s ease-in-out infinite;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+}
+
+/* Hero Section Premium */
+.home-hero {
+  background: radial-gradient(circle at top right, #4a3b69 0%, #2a213a 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0;
+}
+
+/* Patrón de fondo tecnológico */
+.home-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(
+      rgba(143, 116, 197, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(143, 116, 197, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.3;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #fff, #cbb7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Tarjetas de Características (Glassmorphism) */
+.feature-box {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(143, 116, 197, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.feature-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(143, 116, 197, 0.2);
+  border-color: #8f74c5;
+}
+
+.icon-wrapper {
+  width: 70px;
+  height: 70px;
+  background: #f3ecff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: #8f74c5;
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+}
+
+.feature-box:hover .icon-wrapper {
+  background: #8f74c5;
+  color: #fff;
+  transform: rotateY(360deg);
+}
+
+/* Galería Moderna */
+.gallery-card {
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.gallery-card img {
+  transition: transform 0.5s ease;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(42, 33, 58, 0.6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-card:hover .gallery-overlay {
+  opacity: 1;
+}
+
+/* --- ESTILOS PC BUILDER --- */
+
+/* Estilo de la casilla (Slot) */
+.builder-slot {
+  background-color: #ffffff;
+  border: 2px dashed #dee2e6; /* Borde punteado inicial */
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.builder-slot:hover {
+  border-color: #8f74c5; /* Color de tu marca */
+  background-color: #f8f9fa;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Estado cuando ya seleccionaste algo */
+.builder-slot.selected {
+  border: 2px solid #8f74c5; /* Borde sólido */
+  background: linear-gradient(to right, #fff, #fbfaff);
+}
+
+.builder-slot.selected .slot-icon-wrapper {
+  background-color: #8f74c5;
+  color: white !important;
+}
+
+.builder-slot.selected .slot-icon-wrapper i {
+  color: white !important;
+}
+
+.builder-slot.selected .btn-action {
+  background-color: #e9ecef;
+  color: #2a213a;
+  transform: rotate(0deg); /* Icono de editar */
+}
+
+/* Icono del componente a la izquierda */
+.slot-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  background-color: #f1f3f5;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+/* Botón de + a la derecha */
+.btn-action {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid #dee2e6;
+  color: #adb5bd;
+  transition: all 0.3s ease;
+}
+
+.builder-slot:hover .btn-action {
+  background-color: #8f74c5;
+  border-color: #8f74c5;
+  color: white;
+}
+
+/* Estilo de la tarjeta dentro del Modal */
+.modal-card {
+  cursor: pointer;
+  border: 1px solid #f1f3f5;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.modal-card:hover {
+  transform: scale(1.02);
+  border-color: #8f74c5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.hero-calm {
+  /* Fondo sólido elegante en lugar de degradado intenso */
+  background-color: #1a1a2e;
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0;
+}
+
+/* Círculo de luz suave detrás de la imagen (Efecto sutil) */
+.hero-calm::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -10%;
+  transform: translateY(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(143, 116, 197, 0.15) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Imagen limpia sin bordes */
+.hero-img-clean {
+  mask-image: linear-gradient(
+    to bottom,
+    black 80%,
+    transparent 100%
+  ); /* Desvanecido sutil abajo */
+  transition: transform 0.5s ease;
+}
+
+.hero-img-clean:hover {
+  transform: translateY(-5px) scale(1.01);
+}
