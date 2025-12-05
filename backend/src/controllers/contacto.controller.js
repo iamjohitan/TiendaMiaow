@@ -6,29 +6,30 @@ export const enviarCorreoContacto = async (req, res) => {
   let conn;
 
   try {
+    // 1. GUARDAR EN DB (Esto ya te funciona)
     conn = await pool.getConnection();
-
-    // Ejecutamos la inserción
     await conn.query(
       "INSERT INTO contactos (nombre, apellido, email, asunto, mensaje) VALUES (?, ?, ?, ?, ?)",
       [nombre, apellido, email, asunto, mensaje]
     );
+    console.log("✅ Mensaje guardado en DB");
 
-    console.log("✅ Mensaje guardado en la Base de Datos");
+    // 2. INTENTAR ENVIAR CORREO
+    try {
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: process.env.MAIL_USER,
+          pass: process.env.MAIL_PASS,
+        },
+      });
 
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASS,
-      },
-    });
-
-    const mailOptions = {
-      from: `"${nombre} ${apellido}" <${email}>`,
-      to: "soporte.tiendamiaow@gmail.com",
-      subject: `📩 Nuevo Mensaje Web: ${asunto}`,
-      html: `
+      const mailOptions = {
+        from: `"${nombre} ${apellido}" <${email}>`,
+        to: "soporte.tiendamiaow@gmail.com", // A dónde llega
+        replyTo: email,
+        subject: `📩 Nuevo Mensaje Web: ${asunto}`,
+        html: `
                 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #ddd; border-radius: 10px; overflow: hidden;">
                     <div style="background-color: #8f74c5; padding: 20px; text-align: center; color: white;">
                         <h1>Nuevo Contacto Web😺</h1>
@@ -48,22 +49,26 @@ export const enviarCorreoContacto = async (req, res) => {
                     </div>
                 </div>
             `,
-    };
+      };
 
-    await transporter.sendMail(mailOptions);
-    console.log("✅ Correo enviado exitosamente");
+      await transporter.sendMail(mailOptions);
+      console.log("✅ Correo enviado");
+    } catch (mailError) {
+      // Si el correo falla, solo lo registramos en consola, NO detenemos el proceso
+      console.error(
+        "⚠️ Error enviando correo (pero se guardó en DB):",
+        mailError
+      );
+    }
 
+    // 3. RESPONDER AL CLIENTE (Siempre exitoso porque se guardó en DB)
     res.status(200).json({
       status: "ok",
-      message:
-        "¡Mensaje recibido! Se guardó en nuestro sistema y te responderemos pronto.",
+      message: "¡Mensaje recibido! Nos pondremos en contacto pronto.",
     });
   } catch (error) {
-    console.error("❌ Error en el proceso de contacto:", error);
-    res.status(500).json({
-      status: "error",
-      message: "Hubo un error al procesar tu solicitud.",
-    });
+    console.error("❌ Error general:", error);
+    res.status(500).json({ status: "error", message: "Error en el servidor." });
   } finally {
     if (conn) conn.release();
   }

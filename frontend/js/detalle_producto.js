@@ -1,6 +1,7 @@
 // frontend/js/detalle_producto.js
 
-const API_BASE_URL = "https://tiendamiaow-production.up.railway.app/";
+const API_BASE_URL =
+  "https://tiendamiaow-production.up.railway.app/api/productos";
 
 // 1. Obtener ID de la URL
 const params = new URLSearchParams(window.location.search);
