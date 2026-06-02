@@ -2,7 +2,9 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>Tienda Miaow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Tienda Miaow - Hardware Premium en Cali</title>
+    <meta name="description" content="Tienda de hardware premium en Cali. Componentes, periféricos y PC Builder personalizado." />
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
@@ -46,6 +48,9 @@
                   placeholder="Buscar"
                   aria-label="Search"
                 />
+                <button class="btn btn-outline-light d-none d-sm-inline-flex" type="submit">
+                  <i class="bi bi-search"></i>
+                </button>
               </form>
             </div>
           </div>
@@ -58,24 +63,24 @@
 
 <section class="hero-calm d-flex align-items-center">
   <div class="container position-relative z-1">
-    <div class="row align-items-center gy-5">
+    <div class="row align-items-center gy-4 gy-lg-5">
       
       <div class="col-lg-6 text-white">
-        <span class="d-inline-block py-1 px-3 rounded-pill bg-white bg-opacity-10 text-white small mb-4 border border-white border-opacity-10">
+        <span class="d-inline-block py-2 px-3 rounded-pill bg-white bg-opacity-10 text-white small mb-4 border border-white border-opacity-10 animate-fade-in">
           ✨ Hardware Premium en Cali
         </span>
         
-        <h1 class="display-4 fw-bold mb-4 lh-sm">
+        <h1 class="display-5 display-lg-4 fw-bold mb-4 lh-sm animate-slide-down" style="animation: slideDown 0.8s ease;">
           Eleva tu nivel de <br>
-          <span style="color: #cbb7ff;">Juego y Trabajo.</span>
+          <span class="text-gradient">Juego y Trabajo.</span>
         </h1>
         
-        <p class="lead mb-5 text-white-50 fw-normal" style="font-size: 1.1rem; max-width: 480px;">
+        <p class="lead mb-5 text-white-50 fw-normal pe-lg-4" style="font-size: 1rem;">
           Especialistas en componentes de alto rendimiento. Asesoría experta, garantía real y la confianza que tu setup merece.
         </p>
 
-        <div class="d-flex gap-3">
-          <a href="pages/productos.html" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-sm border-0">
+        <div class="d-flex flex-column flex-sm-row gap-3 mb-5">
+          <a href="pages/productos.html" class="btn btn-primary btn-lg px-4 py-3 rounded-pill shadow-sm border-0 text-white">
             Explorar Catálogo
           </a>
           <a href="#about" class="btn btn-outline-light btn-lg px-4 py-3 rounded-pill">
@@ -83,13 +88,13 @@
           </a>
         </div>
         
-        <div class="mt-5 pt-4 d-flex gap-4 border-top border-white border-opacity-10">
+        <div class="mt-5 pt-4 d-flex flex-wrap gap-4 border-top border-white border-opacity-10">
             <div class="d-flex align-items-center gap-2">
-                <i class="bi bi-shield-check fs-4 text-secondary"></i>
+                <i class="bi bi-shield-check fs-5 text-info"></i>
                 <small class="text-white-50 lh-1">Garantía<br>Directa</small>
             </div>
             <div class="d-flex align-items-center gap-2">
-                <i class="bi bi-lightning-charge fs-4 text-secondary"></i>
+                <i class="bi bi-lightning-charge fs-5 text-warning"></i>
                 <small class="text-white-50 lh-1">Envíos<br>Rápidos</small>
             </div>
         </div>
@@ -107,50 +112,50 @@
   </div>
 </section>
 
-      <section class="py-5 bg-light">
+      <section class="py-4 py-md-5 bg-light">
         <div class="container">
-          <div class="row g-4 text-center">
+          <div class="row g-2 g-md-4 text-center">
             <div class="col-6 col-md-3">
               <a
                 href="pages/productos.html"
-                class="text-decoration-none text-dark"
+                class="text-decoration-none text-dark h-100"
               >
-                <div class="card border-0 shadow-sm h-100 py-4 hover-up">
-                  <i class="bi bi-cpu fs-1 text-primary mb-2"></i>
-                  <h6 class="fw-bold">Procesadores</h6>
+                <div class="card border-0 shadow-sm py-3 py-md-4 hover-up" style="transition: all 0.3s ease; cursor: pointer;">
+                  <i class="bi bi-cpu fs-3 fs-md-2 text-primary mb-2"></i>
+                  <h6 class="fw-bold small fw-md-normal">Procesadores</h6>
                 </div>
               </a>
             </div>
             <div class="col-6 col-md-3">
               <a
                 href="pages/productos.html"
-                class="text-decoration-none text-dark"
+                class="text-decoration-none text-dark h-100"
               >
-                <div class="card border-0 shadow-sm h-100 py-4 hover-up">
-                  <i class="bi bi-gpu-card fs-1 text-danger mb-2"></i>
-                  <h6 class="fw-bold">Gráficas</h6>
+                <div class="card border-0 shadow-sm py-3 py-md-4 hover-up" style="transition: all 0.3s ease; cursor: pointer;">
+                  <i class="bi bi-gpu-card fs-3 fs-md-2 text-danger mb-2"></i>
+                  <h6 class="fw-bold small fw-md-normal">Gráficas</h6>
                 </div>
               </a>
             </div>
             <div class="col-6 col-md-3">
               <a
                 href="pages/productos.html"
-                class="text-decoration-none text-dark"
+                class="text-decoration-none text-dark h-100"
               >
-                <div class="card border-0 shadow-sm h-100 py-4 hover-up">
-                  <i class="bi bi-motherboard fs-1 text-success mb-2"></i>
-                  <h6 class="fw-bold">Motherboards</h6>
+                <div class="card border-0 shadow-sm py-3 py-md-4 hover-up" style="transition: all 0.3s ease; cursor: pointer;">
+                  <i class="bi bi-motherboard fs-3 fs-md-2 text-success mb-2"></i>
+                  <h6 class="fw-bold small fw-md-normal">Motherboards</h6>
                 </div>
               </a>
             </div>
             <div class="col-6 col-md-3">
               <a
                 href="pages/productos.html"
-                class="text-decoration-none text-dark"
+                class="text-decoration-none text-dark h-100"
               >
-                <div class="card border-0 shadow-sm h-100 py-4 hover-up">
-                  <i class="bi bi-memory fs-1 text-warning mb-2"></i>
-                  <h6 class="fw-bold">Memorias</h6>
+                <div class="card border-0 shadow-sm py-3 py-md-4 hover-up" style="transition: all 0.3s ease; cursor: pointer;">
+                  <i class="bi bi-memory fs-3 fs-md-2 text-warning mb-2"></i>
+                  <h6 class="fw-bold small fw-md-normal">Memorias</h6>
                 </div>
               </a>
             </div>
@@ -160,9 +165,9 @@
 
       <section id="about" class="py-5 bg-white">
         <div class="container">
-          <div class="row gy-5 align-items-center">
+          <div class="row gy-4 gy-lg-5 align-items-center">
             <div class="col-md-6 reveal-on-scroll">
-              <span class="text-primary fw-bold text-uppercase small ls-1"
+              <span class="text-primary fw-bold text-uppercase small ls-1 d-block mb-3"
                 >Nuestra Historia</span
               >
               <h2 class="fw-bold display-6 mb-3">Expertos en Hardware</h2>
@@ -176,22 +181,22 @@
               </p>
 
               <ul class="list-unstyled mb-4">
-                <li class="mb-2">
+                <li class="mb-3">
                   <i class="bi bi-check-circle-fill text-success me-2"></i>
-                  Garantía y soporte local en Cali
+                  <span class="d-md-inline">Garantía y soporte local en Cali</span>
                 </li>
-                <li class="mb-2">
+                <li class="mb-3">
                   <i class="bi bi-check-circle-fill text-success me-2"></i>
-                  Envíos rápidos y asegurados
+                  <span class="d-md-inline">Envíos rápidos y asegurados</span>
                 </li>
-                <li class="mb-2">
+                <li class="mb-3">
                   <i class="bi bi-check-circle-fill text-success me-2"></i>
-                  Asesoría técnica gratuita
+                  <span class="d-md-inline">Asesoría técnica gratuita</span>
                 </li>
               </ul>
 
               <a
-                class="btn btn-outline-primary rounded-pill px-4"
+                class="btn btn-outline-primary rounded-pill px-4 py-2 py-md-3"
                 href="pages/contacto.html"
               >
                 Hablemos <i class="bi bi-chat-dots ms-1"></i>
@@ -210,7 +215,7 @@
                       src="img/images (1).jpeg"
                       class="d-block w-100"
                       alt="GPU Gaming"
-                      style="height: 350px; object-fit: cover"
+                      style="height: 280px; object-fit: cover;"
                     />
                     <div
                       class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-2"
@@ -224,7 +229,7 @@
                       src="img/images (2).jpeg"
                       class="d-block w-100"
                       alt="Procesador"
-                      style="height: 350px; object-fit: cover"
+                      style="height: 280px; object-fit: cover;"
                     />
                     <div
                       class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-2"
@@ -238,7 +243,7 @@
                       src="img/images (3).jpeg"
                       class="d-block w-100"
                       alt="Perifericos"
-                      style="height: 350px; object-fit: cover"
+                      style="height: 280px; object-fit: cover;"
                     />
                     <div
                       class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-2"
@@ -332,76 +337,78 @@
 
       <section class="py-5 bg-light">
         <div class="container">
-          <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 class="fw-bold m-0">Galería de Ensambles</h3>
+          <div class="d-flex justify-content-between align-items-center mb-5">
+            <div>
+              <h2 class="fw-bold mb-2">Galería de Ensambles</h2>
+              <p class="text-muted mb-0">Visualiza nuestros proyectos premium - Pausa sobre las imágenes para ver videos</p>
+            </div>
             <a
               href="https://www.instagram.com/tiendas_miaow/"
-              class="text-primary text-decoration-none fw-bold"
+              class="text-primary text-decoration-none fw-bold d-none d-md-inline-block"
               >Ver más <i class="bi bi-arrow-right"></i
             ></a>
           </div>
 
-          <div class="row g-3">
+          <div class="row g-3 g-md-4">
             <div class="col-6 col-md-3">
-              <div
-                class="gallery-card"
-                data-bs-toggle="modal"
-
-              >
+              <div class="gallery-card-enhanced">
                 <img
                   src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=400&q=80"
-                  class="img-fluid rounded"
-                  alt="PC Setup"
+                  class="img-fluid rounded gallery-img"
+                  alt="PC Setup Gaming"
                 />
-                <div class="gallery-overlay">
+                <div class="video-overlay">
+                  <iframe class="gallery-video" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media" title="Video relacionado"></iframe>
                 </div>
+                <p class="gallery-title mt-3 fw-bold text-center small">PC Setup Gaming</p>
               </div>
             </div>
             <div class="col-6 col-md-3">
-              <div
-                class="gallery-card"
-                data-bs-toggle="modal"
-
-              >
+              <div class="gallery-card-enhanced">
                 <img
                   src="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&w=400&q=80"
-                  class="img-fluid rounded"
-                  alt="Gamer"
+                  class="img-fluid rounded gallery-img"
+                  alt="Gamer Workspace"
                 />
-                <div class="gallery-overlay">
+                <div class="video-overlay">
+                  <iframe class="gallery-video" src="https://www.youtube.com/embed/jNQXAC9IVRw?autoplay=1&mute=1&loop=1&playlist=jNQXAC9IVRw" frameborder="0" allow="autoplay; encrypted-media" title="Video relacionado"></iframe>
                 </div>
+                <p class="gallery-title mt-3 fw-bold text-center small">Workspace RGB</p>
               </div>
             </div>
             <div class="col-6 col-md-3">
-              <div
-                class="gallery-card"
-                data-bs-toggle="modal"
-
-              >
+              <div class="gallery-card-enhanced">
                 <img
                   src="https://images.unsplash.com/photo-1624705002806-5d72df19c3ad?auto=format&fit=crop&w=400&q=80"
-                  class="img-fluid rounded"
-                  alt="RGB Fan"
+                  class="img-fluid rounded gallery-img"
+                  alt="RGB Lighting"
                 />
-                <div class="gallery-overlay">
+                <div class="video-overlay">
+                  <iframe class="gallery-video" src="https://www.youtube.com/embed/ZbzfZnYrYQY?autoplay=1&mute=1&loop=1&playlist=ZbzfZnYrYQY" frameborder="0" allow="autoplay; encrypted-media" title="Video relacionado"></iframe>
                 </div>
+                <p class="gallery-title mt-3 fw-bold text-center small">Sistema RGB</p>
               </div>
             </div>
             <div class="col-6 col-md-3">
-              <div
-                class="gallery-card"
-                data-bs-toggle="modal"
-
-              >
+              <div class="gallery-card-enhanced">
                 <img
                   src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&q=80"
-                  class="img-fluid rounded"
-                  alt="Teclado"
+                  class="img-fluid rounded gallery-img"
+                  alt="Accesorios Premium"
                 />
-                <div class="gallery-overlay">
+                <div class="video-overlay">
+                  <iframe class="gallery-video" src="https://www.youtube.com/embed/TYzGrqbVXnE?autoplay=1&mute=1&loop=1&playlist=TYzGrqbVXnE" frameborder="0" allow="autoplay; encrypted-media" title="Video relacionado"></iframe>
                 </div>
+                <p class="gallery-title mt-3 fw-bold text-center small">Periféricos</p>
               </div>
             </div>
+          </div>
+          <div class="text-center mt-4 d-md-none">
+            <a
+              href="https://www.instagram.com/tiendas_miaow/"
+              class="text-primary text-decoration-none fw-bold"
+              >Ver más en Instagram <i class="bi bi-arrow-right"></i
+            ></a>
           </div>
         </div>
       </section>
