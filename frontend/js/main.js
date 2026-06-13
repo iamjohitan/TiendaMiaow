@@ -1,6 +1,6 @@
 console.log("Frontend funcionando...");
 
-// Reveal elements on scroll
+// Reveal elements on scroll and Navbar shrinking
 (function () {
   const observer = new IntersectionObserver(
     (entries) => {
@@ -18,12 +18,39 @@ console.log("Frontend funcionando...");
     observer.observe(el);
   });
 
+  // Shrinking Navbar Fallback for older browsers / Firefox
+  const navbar = document.querySelector(".navbar");
+  if (navbar) {
+    const checkScroll = () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("shrunk");
+      } else {
+        navbar.classList.remove("shrunk");
+      }
+    };
+    
+    // Feature detect scroll-driven animations support
+    if (!CSS.supports("(animation-timeline: scroll()) and (animation-range: 0% 100%)")) {
+      window.addEventListener("scroll", checkScroll);
+      checkScroll(); // run once on load
+    }
+  }
+
   // Gallery modal: set image src when clicking a gallery item
   const modalImage = document.getElementById("modalImage");
-  document.querySelectorAll(".gallery-item").forEach((img) => {
+  document.querySelectorAll(".gallery-img").forEach((img) => {
+    img.style.cursor = "pointer";
     img.addEventListener("click", function (e) {
-      const src = this.getAttribute("src");
-      modalImage.setAttribute("src", src);
+      if (modalImage) {
+        const src = this.getAttribute("src");
+        modalImage.setAttribute("src", src);
+        // Show modal manually or trigger bootstrap
+        const modalEl = document.getElementById("imageModal");
+        if (modalEl && typeof bootstrap !== 'undefined') {
+          const bsModal = bootstrap.Modal.getOrCreateInstance(modalEl);
+          bsModal.show();
+        }
+      }
     });
   });
 })();

@@ -1,4 +1,6 @@
-const API_BASE_URL = "https://tiendamiaow-production.up.railway.app";
+const API_BASE_URL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:"
+  ? "http://localhost:4000"
+  : "https://tiendamiaow-production.up.railway.app";
 
 const params = new URLSearchParams(window.location.search);
 const productId = params.get("id");

@@ -3,277 +3,282 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <title>Tienda Miaow - Hardware Premium en Cali</title>
-    <meta name="description" content="Tienda de hardware premium en Cali. Componentes, periféricos y PC Builder personalizado." />
+    <title>Tienda Miaow — Hardware Premium en Cali</title>
+    <meta name="description" content="Tienda de hardware premium en Cali. Componentes, periféricos y PC Builder personalizado. Los mejores precios en procesadores, GPUs, memorias RAM y más." />
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-    />
-
-    <link rel="stylesheet" href="./css/styles.css" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+
+    <!-- ══ NAVBAR ══════════════════════════════════════════════ -->
     <header>
-      <div>
-        <nav class="navbar">
-          <div class="container navbar-container">
-            <a class="navbar-brand" href="index.html">
-              <img
-                src="img/logo.png"
-                alt="TiendaMiaow"
-                width="50"
-                height="50"
-              />
-            </a>
+      <nav class="navbar" id="main-navbar">
+        <div class="navbar-container container">
+          <a class="navbar-brand" href="index.html">
+            <img src="img/logo.png" alt="Tienda Miaow" width="42" height="42" />
+          </a>
 
-            <div class="navegacion">
-              <a href="index.html">Inicio</a>
-              <a href="pages/productos.html">Productos</a>
-              <a href="pages/pc_builder.html">PC Builder</a>
-              <a href="pages/contacto.html">Contacto</a>
-            </div>
-
-            <div class="search-box">
-              <form class="d-flex" role="search">
-                <input
-                  class="form-control me-2"
-                  type="search"
-                  placeholder="Buscar"
-                  aria-label="Search"
-                />
-                <button class="btn btn-outline-light d-none d-sm-inline-flex" type="submit">
-                  <i class="bi bi-search"></i>
-                </button>
-              </form>
-            </div>
+          <div class="navegacion">
+            <a href="index.html" class="active">Inicio</a>
+            <a href="pages/productos.html">Productos</a>
+            <a href="pages/pc_builder.html">PC Builder</a>
+            <a href="pages/contacto.html">Contacto</a>
           </div>
-        </nav>
-      </div>
+
+          <div class="search-box">
+            <i class="bi bi-search search-icon-inner"></i>
+            <form class="d-flex" role="search">
+              <input class="form-control" type="search" placeholder="Buscar producto..." aria-label="Buscar" />
+            </form>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main>
-      </style>
 
-<section class="hero-calm d-flex align-items-center">
-  <div class="container position-relative z-1">
-    <div class="row align-items-center gy-4 gy-lg-5">
-      
-      <div class="col-lg-6 text-white">
-        <span class="d-inline-block py-2 px-3 rounded-pill bg-white bg-opacity-10 text-white small mb-4 border border-white border-opacity-10 animate-fade-in">
-          ✨ Hardware Premium en Cali
-        </span>
-        
-        <h1 class="display-5 display-lg-4 fw-bold mb-4 lh-sm animate-slide-down" style="animation: slideDown 0.8s ease;">
-          Eleva tu nivel de <br>
-          <span class="text-gradient">Juego y Trabajo.</span>
-        </h1>
-        
-        <p class="lead mb-5 text-white-50 fw-normal pe-lg-4" style="font-size: 1rem;">
-          Especialistas en componentes de alto rendimiento. Asesoría experta, garantía real y la confianza que tu setup merece.
-        </p>
-
-        <div class="d-flex flex-column flex-sm-row gap-3 mb-5">
-          <a href="pages/productos.html" class="btn btn-primary btn-lg px-4 py-3 rounded-pill shadow-sm border-0 text-white">
-            Explorar Catálogo
-          </a>
-          <a href="#about" class="btn btn-outline-light btn-lg px-4 py-3 rounded-pill">
-            Ver más
-          </a>
-        </div>
-        
-        <div class="mt-5 pt-4 d-flex flex-wrap gap-4 border-top border-white border-opacity-10">
-            <div class="d-flex align-items-center gap-2">
-                <i class="bi bi-shield-check fs-5 text-info"></i>
-                <small class="text-white-50 lh-1">Garantía<br>Directa</small>
-            </div>
-            <div class="d-flex align-items-center gap-2">
-                <i class="bi bi-lightning-charge fs-5 text-warning"></i>
-                <small class="text-white-50 lh-1">Envíos<br>Rápidos</small>
-            </div>
-        </div>
-      </div>
-
-      <div class="col-lg-6 text-center position-relative">
-        <img 
-          src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=800&q=80" 
-          alt="PC Setup Minimalista" 
-          class="img-fluid rounded-4 shadow-lg hero-img-clean"
-        >
-      </div>
-
-    </div>
-  </div>
-</section>
-
-      <section class="py-4 py-md-5 bg-light">
+      <!-- ══ HERO ═══════════════════════════════════════════════ -->
+      <section class="hero-section" style="padding: 80px 0;">
         <div class="container">
-          <div class="row g-2 g-md-4 text-center">
-            <div class="col-6 col-md-3">
-              <a
-                href="pages/productos.html"
-                class="text-decoration-none text-dark h-100"
-              >
-                <div class="card border-0 shadow-sm py-3 py-md-4 hover-up" style="transition: all 0.3s ease; cursor: pointer;">
-                  <i class="bi bi-cpu fs-3 fs-md-2 text-primary mb-2"></i>
-                  <h6 class="fw-bold small fw-md-normal">Procesadores</h6>
+          <div class="hero-grid">
+
+            <!-- Left column -->
+            <div class="hero-content">
+              <span class="hero-badge">
+                <i class="bi bi-lightning-charge-fill"></i>
+                Hardware Premium en Cali
+              </span>
+
+              <h1 class="hero-title">
+                Construye tu
+                <span class="text-gradient">setup ideal</span>
+                con lo mejor.
+              </h1>
+
+              <p class="hero-desc">
+                Procesadores, GPUs, memorias y más — todo a un clic. Asesoría experta, garantía real y los mejores precios de la ciudad.
+              </p>
+
+              <div class="hero-actions">
+                <a href="pages/productos.html" class="btn btn-brand btn-pill" style="padding: 14px 32px; font-size: 1rem;">
+                  <i class="bi bi-grid-3x3-gap"></i>
+                  Ver Catálogo
+                </a>
+                <a href="pages/pc_builder.html" class="btn btn-outline-brand btn-pill" style="padding: 14px 32px; font-size: 1rem;">
+                  <i class="bi bi-cpu"></i>
+                  Armar mi PC
+                </a>
+              </div>
+
+              <div class="hero-stats">
+                <div>
+                  <span class="hero-stat-num">+200</span>
+                  <span class="hero-stat-label">Productos</span>
                 </div>
-              </a>
+                <div>
+                  <span class="hero-stat-num">5★</span>
+                  <span class="hero-stat-label">Calificación</span>
+                </div>
+                <div>
+                  <span class="hero-stat-num">24h</span>
+                  <span class="hero-stat-label">Soporte</span>
+                </div>
+              </div>
             </div>
-            <div class="col-6 col-md-3">
-              <a
-                href="pages/productos.html"
-                class="text-decoration-none text-dark h-100"
-              >
-                <div class="card border-0 shadow-sm py-3 py-md-4 hover-up" style="transition: all 0.3s ease; cursor: pointer;">
-                  <i class="bi bi-gpu-card fs-3 fs-md-2 text-danger mb-2"></i>
-                  <h6 class="fw-bold small fw-md-normal">Gráficas</h6>
+
+            <!-- Right column — image -->
+            <div class="hero-visual">
+              <div class="hero-img-wrap">
+                <!-- Floating badge top-left -->
+                <div class="hero-float-badge badge-top-left">
+                  <i class="bi bi-shield-check text-success"></i>
+                  Garantía oficial
                 </div>
-              </a>
+
+                <img
+                  src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=900&q=80"
+                  alt="Setup gaming premium"
+                  class="hero-img"
+                />
+
+                <!-- Floating badge bottom-right -->
+                <div class="hero-float-badge badge-bottom-right">
+                  <i class="bi bi-truck" style="color: var(--cyan);"></i>
+                  Envío express
+                </div>
+              </div>
             </div>
-            <div class="col-6 col-md-3">
-              <a
-                href="pages/productos.html"
-                class="text-decoration-none text-dark h-100"
-              >
-                <div class="card border-0 shadow-sm py-3 py-md-4 hover-up" style="transition: all 0.3s ease; cursor: pointer;">
-                  <i class="bi bi-motherboard fs-3 fs-md-2 text-success mb-2"></i>
-                  <h6 class="fw-bold small fw-md-normal">Motherboards</h6>
-                </div>
-              </a>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ CATEGORY GRID ═══════════════════════════════════════ -->
+      <section style="padding: 64px 0; background: var(--bg-2);">
+        <div class="container">
+          <div class="d-flex align-items-center justify-content-between mb-40" style="margin-bottom: 36px;">
+            <div>
+              <div class="section-label">Categorías</div>
+              <h2 class="section-title">Encuentra lo que necesitas</h2>
             </div>
-            <div class="col-6 col-md-3">
-              <a
-                href="pages/productos.html"
-                class="text-decoration-none text-dark h-100"
-              >
-                <div class="card border-0 shadow-sm py-3 py-md-4 hover-up" style="transition: all 0.3s ease; cursor: pointer;">
-                  <i class="bi bi-memory fs-3 fs-md-2 text-warning mb-2"></i>
-                  <h6 class="fw-bold small fw-md-normal">Memorias</h6>
-                </div>
-              </a>
+            <a href="pages/productos.html" class="btn btn-ghost" style="font-size: .875rem;">
+              Ver todo <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="cat-grid">
+            <a href="pages/productos.html" class="cat-card">
+              <div class="cat-icon"><i class="bi bi-cpu"></i></div>
+              <span class="cat-name">Procesadores</span>
+            </a>
+            <a href="pages/productos.html" class="cat-card">
+              <div class="cat-icon" style="background: rgba(6,182,212,.12); color: var(--cyan);"><i class="bi bi-gpu-card"></i></div>
+              <span class="cat-name">Tarjetas Gráficas</span>
+            </a>
+            <a href="pages/productos.html" class="cat-card">
+              <div class="cat-icon" style="background: rgba(16,185,129,.12); color: var(--green);"><i class="bi bi-motherboard"></i></div>
+              <span class="cat-name">Motherboards</span>
+            </a>
+            <a href="pages/productos.html" class="cat-card">
+              <div class="cat-icon" style="background: rgba(245,158,11,.12); color: var(--amber);"><i class="bi bi-memory"></i></div>
+              <span class="cat-name">Memorias RAM</span>
+            </a>
+            <a href="pages/productos.html" class="cat-card">
+              <div class="cat-icon" style="background: rgba(236,72,153,.12); color: var(--pink);"><i class="bi bi-device-ssd"></i></div>
+              <span class="cat-name">Almacenamiento</span>
+            </a>
+            <a href="pages/productos.html" class="cat-card">
+              <div class="cat-icon" style="background: rgba(99,102,241,.12); color: #818cf8;"><i class="bi bi-lightning-charge"></i></div>
+              <span class="cat-name">Fuentes de Poder</span>
+            </a>
+            <a href="pages/productos.html" class="cat-card">
+              <div class="cat-icon" style="background: rgba(20,184,166,.12); color: #2dd4bf;"><i class="bi bi-box-seam"></i></div>
+              <span class="cat-name">Gabinetes</span>
+            </a>
+            <a href="pages/pc_builder.html" class="cat-card" style="background: linear-gradient(135deg, rgba(124,58,237,.1) 0%, rgba(6,182,212,.06) 100%); border-color: var(--bdr-1);">
+              <div class="cat-icon" style="background: var(--grad-brand); color: #fff;"><i class="bi bi-wrench-adjustable"></i></div>
+              <span class="cat-name text-gradient">PC Builder</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ WHY SECTION ═════════════════════════════════════════ -->
+      <section style="padding: 80px 0;">
+        <div class="container">
+          <div class="text-center mb-5">
+            <div class="section-label" style="justify-content: center;">Por qué elegirnos</div>
+            <h2 class="section-title">¿Por qué <span class="text-gradient">Tienda Miaow</span>?</h2>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-md-3 col-6 reveal-on-scroll">
+              <div class="feature-box h-100">
+                <div class="icon-wrapper"><i class="bi bi-award"></i></div>
+                <h5>Calidad Premium</h5>
+                <p>Productos 100% originales, sellados y con factura electrónica incluida.</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-6 reveal-on-scroll">
+              <div class="feature-box h-100">
+                <div class="icon-wrapper" style="background: rgba(6,182,212,.12); color: var(--cyan);"><i class="bi bi-send"></i></div>
+                <h5>Envíos Flash</h5>
+                <p>Entrega rápida y asegurada a cualquier ciudad de Colombia.</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-6 reveal-on-scroll">
+              <div class="feature-box h-100">
+                <div class="icon-wrapper" style="background: rgba(16,185,129,.12); color: var(--green);"><i class="bi bi-headset"></i></div>
+                <h5>Soporte Técnico</h5>
+                <p>Asesoría personalizada para que siempre elijas el mejor componente.</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-6 reveal-on-scroll">
+              <div class="feature-box h-100">
+                <div class="icon-wrapper" style="background: rgba(245,158,11,.12); color: var(--amber);"><i class="bi bi-tags"></i></div>
+                <h5>Mejores Precios</h5>
+                <p>Competitivos todo el año, con promociones exclusivas para clientes frecuentes.</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="about" class="py-5 bg-white">
+      <!-- ══ ABOUT SECTION ═══════════════════════════════════════ -->
+      <section class="about-section" style="padding: 80px 0;" id="about">
         <div class="container">
-          <div class="row gy-4 gy-lg-5 align-items-center">
-            <div class="col-md-6 reveal-on-scroll">
-              <span class="text-primary fw-bold text-uppercase small ls-1 d-block mb-3"
-                >Nuestra Historia</span
-              >
-              <h2 class="fw-bold display-6 mb-3">Expertos en Hardware</h2>
-              <p class="text-muted lead">
-                Somos una tienda local enfocada en la excelencia. No solo
-                vendemos cajas, vendemos rendimiento.
-              </p>
-              <p class="text-secondary mb-4">
-                Armamos PCs a medida, asesoramos tu compra para que no gastes de
-                más y ofrecemos garantía directa. Tu confianza es nuestro motor.
+          <div class="row g-5 align-items-center">
+            <div class="col-lg-6 reveal-on-scroll">
+              <div class="section-label">Nuestra Historia</div>
+              <h2 class="section-title mb-4">Expertos en Hardware,<br /><span class="text-gradient">apasionados por ti</span></h2>
+              <p style="color: var(--txt-2); font-size: 1rem; line-height: 1.8; margin-bottom: 28px;">
+                Somos una tienda local de Cali enfocada en la excelencia. No solo vendemos cajas — vendemos rendimiento, asesoría y la confianza de que tu inversión vale la pena.
               </p>
 
-              <ul class="list-unstyled mb-4">
-                <li class="mb-3">
-                  <i class="bi bi-check-circle-fill text-success me-2"></i>
-                  <span class="d-md-inline">Garantía y soporte local en Cali</span>
+              <ul class="about-checklist mb-5">
+                <li>
+                  <span class="check-icon"><i class="bi bi-check2"></i></span>
+                  <span>Garantía y soporte local en Cali</span>
                 </li>
-                <li class="mb-3">
-                  <i class="bi bi-check-circle-fill text-success me-2"></i>
-                  <span class="d-md-inline">Envíos rápidos y asegurados</span>
+                <li>
+                  <span class="check-icon"><i class="bi bi-check2"></i></span>
+                  <span>Envíos rápidos y asegurados a todo Colombia</span>
                 </li>
-                <li class="mb-3">
-                  <i class="bi bi-check-circle-fill text-success me-2"></i>
-                  <span class="d-md-inline">Asesoría técnica gratuita</span>
+                <li>
+                  <span class="check-icon"><i class="bi bi-check2"></i></span>
+                  <span>Asesoría técnica gratuita antes y después de tu compra</span>
+                </li>
+                <li>
+                  <span class="check-icon"><i class="bi bi-check2"></i></span>
+                  <span>Ensamblamos tu PC a medida sin costo adicional</span>
                 </li>
               </ul>
 
-              <a
-                class="btn btn-outline-primary rounded-pill px-4 py-2 py-md-3"
-                href="pages/contacto.html"
-              >
-                Hablemos <i class="bi bi-chat-dots ms-1"></i>
+              <a href="pages/contacto.html" class="btn btn-brand">
+                Hablemos <i class="bi bi-chat-dots"></i>
               </a>
             </div>
 
-            <div class="col-md-6 reveal-on-scroll">
-              <div
-                id="promoCarousel"
-                class="carousel slide shadow-lg rounded-4 overflow-hidden"
-                data-bs-ride="carousel"
-              >
+            <div class="col-lg-6 reveal-on-scroll">
+              <!-- Carousel with new dark style -->
+              <div id="promoCarousel" class="carousel slide" data-bs-ride="carousel" style="border-radius: var(--r-xl); overflow: hidden; border: 1px solid var(--bdr-2); box-shadow: var(--shadow-glow);">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img
-                      src="img/images (1).jpeg"
-                      class="d-block w-100"
-                      alt="GPU Gaming"
-                      style="height: 280px; object-fit: cover;"
-                    />
-                    <div
-                      class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-2"
-                    >
-                      <h5 class="fw-bold">Gráficas de Última Generación</h5>
-                      <p class="small mb-0">Potencia visual sin límites.</p>
+                    <img src="img/images (1).jpeg" class="d-block w-100" alt="GPU Gaming" style="height: 340px; object-fit: cover;" />
+                    <div class="carousel-caption" style="background: rgba(8,6,15,.75); backdrop-filter: blur(8px); border-radius: var(--r-md); border: 1px solid var(--bdr-2);">
+                      <h5 style="font-family: var(--f-heading); font-weight: 700; font-size: 1rem;">Gráficas de Última Generación</h5>
+                      <p class="small mb-0" style="color: var(--txt-2);">Potencia visual sin límites.</p>
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <img
-                      src="img/images (2).jpeg"
-                      class="d-block w-100"
-                      alt="Procesador"
-                      style="height: 280px; object-fit: cover;"
-                    />
-                    <div
-                      class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-2"
-                    >
-                      <h5 class="fw-bold">Procesamiento Extremo</h5>
-                      <p class="small mb-0">Intel y AMD disponibles.</p>
+                    <img src="img/images (2).jpeg" class="d-block w-100" alt="Procesador" style="height: 340px; object-fit: cover;" />
+                    <div class="carousel-caption" style="background: rgba(8,6,15,.75); backdrop-filter: blur(8px); border-radius: var(--r-md); border: 1px solid var(--bdr-2);">
+                      <h5 style="font-family: var(--f-heading); font-weight: 700; font-size: 1rem;">Procesamiento Extremo</h5>
+                      <p class="small mb-0" style="color: var(--txt-2);">Intel y AMD disponibles.</p>
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <img
-                      src="img/images (3).jpeg"
-                      class="d-block w-100"
-                      alt="Perifericos"
-                      style="height: 280px; object-fit: cover;"
-                    />
-                    <div
-                      class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-2"
-                    >
-                      <h5 class="fw-bold">Ensambles a Medida</h5>
-                      <p class="small mb-0">Creamos la PC de tus sueños.</p>
+                    <img src="img/images (3).jpeg" class="d-block w-100" alt="Periféricos" style="height: 340px; object-fit: cover;" />
+                    <div class="carousel-caption" style="background: rgba(8,6,15,.75); backdrop-filter: blur(8px); border-radius: var(--r-md); border: 1px solid var(--bdr-2);">
+                      <h5 style="font-family: var(--f-heading); font-weight: 700; font-size: 1rem;">Ensambles a Medida</h5>
+                      <p class="small mb-0" style="color: var(--txt-2);">Creamos la PC de tus sueños.</p>
                     </div>
                   </div>
                 </div>
-                <button
-                  class="carousel-control-prev"
-                  type="button"
-                  data-bs-target="#promoCarousel"
-                  data-bs-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
+                <button class="carousel-control-prev" type="button" data-bs-target="#promoCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 </button>
-                <button
-                  class="carousel-control-next"
-                  type="button"
-                  data-bs-target="#promoCarousel"
-                  data-bs-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
+                <button class="carousel-control-next" type="button" data-bs-target="#promoCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 </button>
               </div>
             </div>
@@ -281,190 +286,117 @@
         </div>
       </section>
 
-      <section class="py-5 bg-light">
+      <!-- ══ GALLERY SECTION ════════════════════════════════════ -->
+      <section style="padding: 80px 0;">
         <div class="container">
-          <div class="text-center mb-5">
-            <h2 class="fw-bold">¿Por qué Tienda Miaow?</h2>
-          </div>
-          <div class="row gx-4 gy-4">
-            <div class="col-md-3 reveal-on-scroll">
-              <div class="feature-box text-center h-100">
-                <div class="icon-wrapper">
-                  <i class="bi bi-award"></i>
-                </div>
-                <h5 class="fw-bold">Calidad Premium</h5>
-                <p class="small text-muted mb-0">
-                  Productos 100% originales y sellados.
-                </p>
-              </div>
-            </div>
-            <div class="col-md-3 reveal-on-scroll">
-              <div class="feature-box text-center h-100">
-                <div class="icon-wrapper">
-                  <i class="bi bi-send"></i>
-                </div>
-                <h5 class="fw-bold">Envíos Flash</h5>
-                <p class="small text-muted mb-0">
-                  Entrega segura y rápida a tu puerta.
-                </p>
-              </div>
-            </div>
-            <div class="col-md-3 reveal-on-scroll">
-              <div class="feature-box text-center h-100">
-                <div class="icon-wrapper">
-                  <i class="bi bi-tools"></i>
-                </div>
-                <h5 class="fw-bold">Soporte Técnico</h5>
-                <p class="small text-muted mb-0">
-                  Te ayudamos si algo sale mal.
-                </p>
-              </div>
-            </div>
-            <div class="col-md-3 reveal-on-scroll">
-              <div class="feature-box text-center h-100">
-                <div class="icon-wrapper">
-                  <i class="bi bi-percent"></i>
-                </div>
-                <h5 class="fw-bold">Mejores Precios</h5>
-                <p class="small text-muted mb-0">
-                  Ofertas competitivas todo el año.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="py-5 bg-light">
-        <div class="container">
-          <div class="d-flex justify-content-between align-items-center mb-5">
+          <div class="d-flex align-items-center justify-content-between mb-4" style="margin-bottom: 36px;">
             <div>
-              <h2 class="fw-bold mb-2">Galería de Ensambles</h2>
-              <p class="text-muted mb-0">Visualiza nuestros proyectos premium - Pausa sobre las imágenes para ver videos</p>
+              <div class="section-label">Portfolio</div>
+              <h2 class="section-title">Galería de Ensambles</h2>
             </div>
-            <a
-              href="https://www.instagram.com/tiendas_miaow/"
-              class="text-primary text-decoration-none fw-bold d-none d-md-inline-block"
-              >Ver más <i class="bi bi-arrow-right"></i
-            ></a>
+            <a href="https://www.instagram.com/tiendas_miaow/" target="_blank" class="btn btn-ghost" style="font-size: .875rem;">
+              <i class="bi bi-instagram"></i>
+              Ver más
+            </a>
           </div>
 
-          <div class="row g-3 g-md-4">
+          <div class="row g-3">
             <div class="col-6 col-md-3">
               <div class="gallery-card-enhanced">
-                <img
-                  src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=400&q=80"
-                  class="img-fluid rounded gallery-img"
-                  alt="PC Setup Gaming"
-                />
-                <div class="video-overlay">
-                  <iframe class="gallery-video" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media" title="Video relacionado"></iframe>
+                <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=400&q=80" class="gallery-img" alt="PC Setup Gaming" />
+                <div class="gallery-overlay">
+                  <i class="bi bi-play-circle-fill" style="font-size: 2.5rem; color: #fff; opacity: .9;"></i>
                 </div>
-                <p class="gallery-title mt-3 fw-bold text-center small">PC Setup Gaming</p>
+                <div class="video-overlay">
+                  <iframe class="gallery-video" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media" title="PC Setup Gaming"></iframe>
+                </div>
+                <p class="gallery-title p-2">PC Setup Gaming</p>
               </div>
             </div>
             <div class="col-6 col-md-3">
               <div class="gallery-card-enhanced">
-                <img
-                  src="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&w=400&q=80"
-                  class="img-fluid rounded gallery-img"
-                  alt="Gamer Workspace"
-                />
-                <div class="video-overlay">
-                  <iframe class="gallery-video" src="https://www.youtube.com/embed/jNQXAC9IVRw?autoplay=1&mute=1&loop=1&playlist=jNQXAC9IVRw" frameborder="0" allow="autoplay; encrypted-media" title="Video relacionado"></iframe>
+                <img src="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&w=400&q=80" class="gallery-img" alt="Workspace RGB" />
+                <div class="gallery-overlay">
+                  <i class="bi bi-play-circle-fill" style="font-size: 2.5rem; color: #fff; opacity: .9;"></i>
                 </div>
-                <p class="gallery-title mt-3 fw-bold text-center small">Workspace RGB</p>
+                <div class="video-overlay">
+                  <iframe class="gallery-video" src="https://www.youtube.com/embed/jNQXAC9IVRw?autoplay=1&mute=1&loop=1&playlist=jNQXAC9IVRw" frameborder="0" allow="autoplay; encrypted-media" title="Workspace RGB"></iframe>
+                </div>
+                <p class="gallery-title p-2">Workspace RGB</p>
               </div>
             </div>
             <div class="col-6 col-md-3">
               <div class="gallery-card-enhanced">
-                <img
-                  src="https://images.unsplash.com/photo-1624705002806-5d72df19c3ad?auto=format&fit=crop&w=400&q=80"
-                  class="img-fluid rounded gallery-img"
-                  alt="RGB Lighting"
-                />
-                <div class="video-overlay">
-                  <iframe class="gallery-video" src="https://www.youtube.com/embed/ZbzfZnYrYQY?autoplay=1&mute=1&loop=1&playlist=ZbzfZnYrYQY" frameborder="0" allow="autoplay; encrypted-media" title="Video relacionado"></iframe>
+                <img src="https://images.unsplash.com/photo-1624705002806-5d72df19c3ad?auto=format&fit=crop&w=400&q=80" class="gallery-img" alt="Sistema RGB" />
+                <div class="gallery-overlay">
+                  <i class="bi bi-play-circle-fill" style="font-size: 2.5rem; color: #fff; opacity: .9;"></i>
                 </div>
-                <p class="gallery-title mt-3 fw-bold text-center small">Sistema RGB</p>
+                <div class="video-overlay">
+                  <iframe class="gallery-video" src="https://www.youtube.com/embed/ZbzfZnYrYQY?autoplay=1&mute=1&loop=1&playlist=ZbzfZnYrYQY" frameborder="0" allow="autoplay; encrypted-media" title="Sistema RGB"></iframe>
+                </div>
+                <p class="gallery-title p-2">Sistema RGB</p>
               </div>
             </div>
             <div class="col-6 col-md-3">
               <div class="gallery-card-enhanced">
-                <img
-                  src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&q=80"
-                  class="img-fluid rounded gallery-img"
-                  alt="Accesorios Premium"
-                />
-                <div class="video-overlay">
-                  <iframe class="gallery-video" src="https://www.youtube.com/embed/TYzGrqbVXnE?autoplay=1&mute=1&loop=1&playlist=TYzGrqbVXnE" frameborder="0" allow="autoplay; encrypted-media" title="Video relacionado"></iframe>
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&q=80" class="gallery-img" alt="Periféricos" />
+                <div class="gallery-overlay">
+                  <i class="bi bi-play-circle-fill" style="font-size: 2.5rem; color: #fff; opacity: .9;"></i>
                 </div>
-                <p class="gallery-title mt-3 fw-bold text-center small">Periféricos</p>
+                <div class="video-overlay">
+                  <iframe class="gallery-video" src="https://www.youtube.com/embed/TYzGrqbVXnE?autoplay=1&mute=1&loop=1&playlist=TYzGrqbVXnE" frameborder="0" allow="autoplay; encrypted-media" title="Periféricos"></iframe>
+                </div>
+                <p class="gallery-title p-2">Periféricos</p>
               </div>
             </div>
-          </div>
-          <div class="text-center mt-4 d-md-none">
-            <a
-              href="https://www.instagram.com/tiendas_miaow/"
-              class="text-primary text-decoration-none fw-bold"
-              >Ver más en Instagram <i class="bi bi-arrow-right"></i
-            ></a>
           </div>
         </div>
       </section>
 
-      <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-          <div class="modal-content bg-transparent border-0">
-            <div class="modal-body p-0 text-center position-relative">
-              <img
-                src=""
-                id="modalImage"
-                class="w-100 rounded shadow-lg"
-                alt="Preview"
-              />
-              <button
-                type="button"
-                class="btn btn-light position-absolute top-0 end-0 m-3 rounded-circle"
-                data-bs-dismiss="modal"
-              >
-                <i class="bi bi-x-lg"></i>
-              </button>
+      <!-- ══ CTA BANNER ══════════════════════════════════════════ -->
+      <section style="padding: 80px 0; background: var(--bg-2);">
+        <div class="container">
+          <div style="background: linear-gradient(135deg, rgba(124,58,237,.15) 0%, rgba(6,182,212,.08) 100%); border: 1px solid var(--bdr-1); border-radius: var(--r-xl); padding: 60px 48px; text-align: center; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: -30%; left: 50%; transform: translateX(-50%); width: 60%; height: 200%; background: radial-gradient(ellipse, rgba(124,58,237,.12) 0%, transparent 60%); pointer-events: none;"></div>
+            <div class="position-relative">
+              <span class="hero-badge" style="margin-bottom: 20px;">
+                <i class="bi bi-cpu"></i>
+                Configurador Inteligente
+              </span>
+              <h2 class="section-title mb-3">¿No sabes qué componentes elegir?</h2>
+              <p style="color: var(--txt-2); font-size: 1.05rem; max-width: 500px; margin: 0 auto 36px;">
+                Usa nuestro PC Builder y arma tu configuración ideal en minutos. Luego cotiza directamente por WhatsApp.
+              </p>
+              <a href="pages/pc_builder.html" class="btn btn-brand btn-pill" style="padding: 14px 40px; font-size: 1rem;">
+                <i class="bi bi-wrench-adjustable"></i>
+                Ir al PC Builder
+              </a>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
     </main>
 
-    <footer class="footer text-light pt-5 pb-3">
+    <!-- ══ FOOTER ══════════════════════════════════════════════ -->
+    <footer class="footer">
       <div class="container">
-        <div class="row">
-          <div class="col-md-4 mb-4 text-center">
-            <h4 class="fw-bold">Tienda Miaow</h4>
-            <p>
-              Tu tienda de tecnología favorita. Componentes, periféricos y todo
-              lo que necesitas para armar tu setup perfecto.
-            </p>
-
-            <div class="social-icons mt-3">
-              <a
-                href="https://www.facebook.com/profile.php?id=100063507426427"
-                target="_blank"
-                ><i class="bi bi-facebook"></i
-              ></a>
-              <a href="https://www.instagram.com/tiendas_miaow/" target="_blank"
-                ><i class="bi bi-instagram"></i
-              ></a>
-              <a
-                href="https://www.tiktok.com/@tiendas.miaow?is_from_webapp=1&sender_device=pc"
-                target="_blank"
-                ><i class="bi bi-tiktok"></i
-              ></a>
+        <div class="row g-4">
+          <!-- Brand -->
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-brand-name">Tienda Miaow 🐱</div>
+            <p class="mb-4">Tu tienda de hardware premium en Cali. Componentes originales, precios justos y asesoría de verdad.</p>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/profile.php?id=100063507426427" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/tiendas_miaow/" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.tiktok.com/@tiendas.miaow" target="_blank" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+              <a href="https://wa.me/573175067243" target="_blank" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
             </div>
           </div>
 
-          <div class="col-md-4 mb-4 text-center">
-            <h5 class="fw-bold">Navegación</h5>
+          <!-- Nav links -->
+          <div class="col-lg-2 col-md-6 col-6">
+            <h5>Navegación</h5>
             <ul class="footer-links">
               <li><a href="index.html">Inicio</a></li>
               <li><a href="pages/productos.html">Productos</a></li>
@@ -473,27 +405,43 @@
             </ul>
           </div>
 
-          <div class="col-md-4 mb-4 text-center">
-            <h5 class="fw-bold">Contáctanos</h5>
-            <p>Email: soporte.tiendamiaow@gmail.com</p>
-            <p>Tel: +57 317 506 7243</p>
-            <p>Horario: Todos los dias / 9am – 6pm</p>
+          <!-- Categories -->
+          <div class="col-lg-2 col-md-6 col-6">
+            <h5>Categorías</h5>
+            <ul class="footer-links">
+              <li><a href="pages/productos.html">Procesadores</a></li>
+              <li><a href="pages/productos.html">Tarjetas Gráficas</a></li>
+              <li><a href="pages/productos.html">Memorias RAM</a></li>
+              <li><a href="pages/productos.html">Almacenamiento</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact info -->
+          <div class="col-lg-4 col-md-6">
+            <h5>Contáctanos</h5>
+            <ul class="footer-links">
+              <li><a href="mailto:soporte.tiendamiaow@gmail.com"><i class="bi bi-envelope me-2"></i>soporte.tiendamiaow@gmail.com</a></li>
+              <li><a href="tel:+573175067243"><i class="bi bi-telephone me-2"></i>+57 317 506 7243</a></li>
+              <li><a href="#"><i class="bi bi-geo-alt me-2"></i>Cali, Colombia</a></li>
+              <li style="color: var(--txt-3); font-size: .8rem; padding-top: 4px;"><i class="bi bi-clock me-2"></i>Todos los días · 9am – 6pm</li>
+            </ul>
           </div>
         </div>
 
-        <hr class="mt-3 mb-3 opacity-25" />
+        <hr class="footer-divider" />
 
-        <div class="text-center small">
-          © 2025 Tienda Miaow — Todos los derechos reservados.
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+          <p class="footer-copy mb-0">© 2025 Tienda Miaow — Todos los derechos reservados.</p>
+          <p class="footer-copy mb-0" style="color: var(--txt-3);">Diseñado con ❤️ en Cali, Colombia</p>
         </div>
       </div>
     </footer>
 
-    <script src="./js/main.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
   </body>
 </html>

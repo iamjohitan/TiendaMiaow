@@ -1,7 +1,8 @@
 // frontend/js/contacto.js
 
-// Asegúrate de que el puerto sea el correcto (4000 para tu backend local)
-const RAILWAY_API_URL = "https://tiendamiaow-production.up.railway.app";
+const RAILWAY_API_URL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:"
+  ? "http://localhost:4000"
+  : "https://tiendamiaow-production.up.railway.app";
 const CONTACT_ENDPOINT = "/api/contacto";
 
 // 🛑 CORRECCIÓN AQUÍ: Usamos la clase nueva del diseño bonito (.contact-form-inner)

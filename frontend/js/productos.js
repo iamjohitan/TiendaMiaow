@@ -1,4 +1,6 @@
-const API_BASE_URL = "https://tiendamiaow-production.up.railway.app";
+const API_BASE_URL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:"
+  ? "http://localhost:4000"
+  : "https://tiendamiaow-production.up.railway.app";
 const PRODUCTOS_ENDPOINT = "/api/productos";
 
 const productosContainer = document.getElementById("productos-container");
@@ -31,48 +33,32 @@ function createProductCard(producto) {
   const formattedPrice = parseFloat(producto.precio).toFixed(2);
 
   return `
-
-        <div class="col">
-
-            <div class="card h-100 shadow-sm border-0">
-
-                <a href="detalle_producto.html?id=${producto.id}" class="text-decoration-none text-dark">
-
-                    <img src="${producto.imagen}" class="card-img-top p-3" alt="${producto.nombre}" style="height: 200px; object-fit: contain;">
-
-                </a>
-
-                <div class="card-body d-flex flex-column">
-
-                    <h5 class="card-title fw-bold" style="font-size: 1rem;">${producto.nombre}</h5>
-
-                    <p class="text-muted small">${producto.marca}</p>
-
-                    <p class="card-text text-success fs-4 fw-bolder mt-auto">$${formattedPrice}</p>
-
-                    
-
-                    <a href="detalle_producto.html?id=${producto.id}" class="btn btn-primary mt-2">
-
-                        Ver Detalles <i class="bi bi-eye"></i>
-
-                    </a>
-
-                    
-
-                    <a href="https://wa.me/message/T4A5S3YGZWPGE1" target="_blank" class="btn btn-outline-success mt-2">
-
-                        Cotizar <i class="bi bi-whatsapp"></i>
-
-                    </a>
-
-                </div>
-
+    <div class="col">
+      <div class="card h-100 shadow-sm border-0 product-card-hover" style="border: 1px solid rgba(143, 116, 197, 0.08) !important; border-radius: 16px; overflow: hidden; background: #ffffff;">
+        <a href="detalle_producto.html?id=${producto.id}" class="text-decoration-none text-dark d-block p-3" style="background: #fafafa; border-bottom: 1px solid rgba(0,0,0,0.02);">
+          <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}" style="height: 180px; object-fit: contain; transition: transform 0.3s ease;">
+        </a>
+        <div class="card-body d-flex flex-column p-4">
+          <div class="d-flex align-items-center mb-2">
+            <span class="badge bg-primary bg-opacity-10 text-primary text-uppercase font-monospace" style="font-size: 0.72rem; letter-spacing: 0.5px;">${producto.marca}</span>
+          </div>
+          <h5 class="card-title fw-bold mb-3 text-dark" style="font-size: 0.98rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; height: 2.8rem;">${producto.nombre}</h5>
+          
+          <div class="mt-auto pt-2">
+            <p class="card-text text-primary fs-4 fw-bold mb-3">$${formattedPrice}</p>
+            <div class="d-grid gap-2">
+              <a href="detalle_producto.html?id=${producto.id}" class="btn btn-primary rounded-pill py-2 small-btn" style="font-size: 0.9rem;">
+                Ver Detalles <i class="bi bi-eye ms-1"></i>
+              </a>
+              <a href="https://wa.me/573175067243?text=Hola%20Tienda%20Miaow!%20%F0%9F%90%B1%20Quiero%20cotizar%20este%20producto:%20*${encodeURIComponent(producto.nombre)}*%20(${producto.marca})%20por%20$${formattedPrice}." target="_blank" class="btn btn-outline-success rounded-pill py-2 small-btn" style="font-size: 0.9rem; background-color: transparent !important; color: #198754 !important; border: 1px solid #198754 !important;">
+                Cotizar <i class="bi bi-whatsapp ms-1"></i>
+              </a>
             </div>
-
+          </div>
         </div>
-
-    `;
+      </div>
+    </div>
+  `;
 }
 
 function displayProducts(productsToDisplay) {

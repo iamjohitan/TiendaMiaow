@@ -1,4 +1,7 @@
-const API_URL = "https://tiendamiaow-production.up.railway.app/api/productos";
+const API_BASE_URL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:"
+  ? "http://localhost:4000"
+  : "https://tiendamiaow-production.up.railway.app";
+const API_URL = `${API_BASE_URL}/api/productos`;
 
 // 1. ESTADO DEL ENSAMBLE (Las 7 categorías)
 let build = {
@@ -139,36 +142,104 @@ window.selectItem = (id) => {
   modal.hide();
 };
 
+const defaultSlotContents = {
+  cpu: {
+    icon: "bi-cpu",
+    title: "Procesador",
+    desc: "El cerebro de tu computadora"
+  },
+  mobo: {
+    icon: "bi-motherboard",
+    title: "Placa Madre",
+    desc: "La base de todo el sistema"
+  },
+  ram: {
+    icon: "bi-memory",
+    title: "Memoria RAM",
+    desc: "Velocidad y multitarea"
+  },
+  gpu: {
+    icon: "bi-gpu-card",
+    title: "Tarjeta Gráfica",
+    desc: "Potencia visual para juegos"
+  },
+  storage: {
+    icon: "bi-device-ssd",
+    title: "Almacenamiento",
+    desc: "SSD o Disco Duro"
+  },
+  psu: {
+    icon: "bi-lightning-charge",
+    title: "Fuente de Poder",
+    desc: "Energía para tu PC"
+  },
+  case: {
+    icon: "bi-box",
+    title: "Gabinete",
+    desc: "La carcasa de tu estilo"
+  }
+};
+
+window.removeItem = (event, category) => {
+  event.stopPropagation(); // Prevenir abrir el modal al hacer clic en borrar
+  build[category] = null;
+  guardarProgreso();
+  updateTotal();
+  actualizarSlotVacio(category);
+};
+
+function actualizarSlotVacio(category) {
+  const slot = document.getElementById(`slot-${category}`);
+  if (!slot) return;
+  
+  slot.classList.remove("selected");
+  const data = defaultSlotContents[category];
+  
+  slot.innerHTML = `
+    <div class="slot-icon-wrapper slot-icon text-primary bg-primary bg-opacity-10">
+      <i class="bi ${data.icon}"></i>
+    </div>
+    <div class="flex-grow-1">
+      <h5 class="mb-1 fw-bold text-dark" id="${category}-name">${data.title}</h5>
+      <p class="mb-0 text-muted small" id="${category}-price">${data.desc}</p>
+    </div>
+    <button class="slot-action-btn add btn btn-sm btn-outline-secondary rounded-circle shadow-sm">
+      <i class="bi bi-plus-lg"></i>
+    </button>
+  `;
+}
+
 function actualizarSlotVisual(category, product) {
   const slot = document.getElementById(`slot-${category}`);
-  if (!slot) return; // Protección por si el ID del HTML está mal
+  if (!slot) return;
 
   slot.classList.add("selected");
-
-  // Actualizar textos dentro del slot
-  const nameEl = slot.querySelector(`#${category}-name`);
-  const priceEl = slot.querySelector(`#${category}-price`);
-
-  if (nameEl) {
-    nameEl.textContent = product.nombre;
-    nameEl.className = "fw-bold mb-1 text-primary";
-  }
-
-  if (priceEl) {
-    const price = parseFloat(product.precio).toFixed(2);
-    priceEl.innerHTML = `<span class="badge bg-success bg-opacity-10 text-success">$${price}</span>`;
-  }
+  const price = parseFloat(product.precio).toFixed(2);
+  
+  slot.innerHTML = `
+    <div class="slot-selected-detail animate-fade-in w-100">
+      <img src="${product.imagen}" class="slot-selected-img" alt="${product.nombre}">
+      <div class="flex-grow-1">
+        <small class="text-uppercase text-muted font-monospace fw-bold" style="font-size: 0.7rem; letter-spacing: 0.5px;">${names[category] || category}</small>
+        <h5 class="mb-1 fw-bold text-primary" style="font-size: 0.95rem;">${product.nombre}</h5>
+        <span class="badge bg-success bg-opacity-10 text-success">$${price}</span>
+      </div>
+      <button class="slot-remove-btn" onclick="removeItem(event, '${category}')" title="Quitar componente">
+        <i class="bi bi-trash3-fill"></i>
+      </button>
+    </div>
+  `;
 }
 
 function updateTotal() {
   let total = 0;
+  let selectedCount = 0;
 
   // Recorremos el objeto 'build' y sumamos si hay producto seleccionado
   Object.values(build).forEach((p) => {
-    // Verificamos si 'p' existe y si tiene precio
     if (p && p.precio) {
-      // Aseguramos que sea número (si viene como "100.00", parseFloat lo convierte)
       total += Number(p.precio);
+      selectedCount++;
     }
   });
 
@@ -178,16 +249,23 @@ function updateTotal() {
     maximumFractionDigits: 2,
   })}`;
 
-  const subtotalEl = document.getElementById("subtotal-price"); // Corregido: ID del HTML anterior era este?
-  const totalEl = document.getElementById("total-price");
-
-  // En tu último HTML, los IDs son 'resumen-subtotal' y 'resumen-total'
-  // CORRECCIÓN FINAL DE IDs:
   const elSubtotal = document.getElementById("resumen-subtotal");
   const elTotal = document.getElementById("resumen-total");
 
   if (elSubtotal) elSubtotal.textContent = totalFormatted;
   if (elTotal) elTotal.textContent = totalFormatted;
+
+  // Actualizar barra de progreso de armado
+  const progressText = document.getElementById("progress-text");
+  const progressFill = document.getElementById("progress-fill");
+
+  if (progressText) {
+    progressText.textContent = `${selectedCount} / 7`;
+  }
+  if (progressFill) {
+    const percent = Math.round((selectedCount / 7) * 100);
+    progressFill.style.width = `${percent}%`;
+  }
 }
 
 // =========================================================

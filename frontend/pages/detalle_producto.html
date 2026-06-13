@@ -2,232 +2,247 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>Productos | Tienda Miaow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="page-title">Producto — Tienda Miaow</title>
+    <meta name="description" content="Detalle del producto en Tienda Miaow. Hardware original con garantía." />
     <link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
+
+    <!-- ══ NAVBAR ══════════════════════════════════════════════ -->
     <header>
-      <div>
-        <nav class="navbar">
-          <div class="container navbar-container">
-            <a class="navbar-brand" href="../index.html">
-              <img
-                src="../img/logo.png"
-                alt="TiendaMiaow"
-                width="50"
-                height="50"
-              />
-            </a>
-
-            <div class="navegacion">
-              <a href="../index.html">Inicio</a>
-              <a href="productos.html">Productos</a>
-              <a href="pc_builder.html">PC Builder</a>
-              <a href="contacto.html">Contacto</a>
-            </div>
-
-            <div class="search-box">
-              <form class="d-flex" role="search">
-                <input
-                  class="form-control me-2"
-                  type="search"
-                  placeholder="Buscar"
-                  aria-label="Search"
-                />
-              </form>
-            </div>
+      <nav class="navbar" id="main-navbar">
+        <div class="navbar-container container">
+          <a class="navbar-brand" href="../index.html">
+            <img src="../img/logo.png" alt="Tienda Miaow" width="42" height="42" />
+          </a>
+          <div class="navegacion">
+            <a href="../index.html">Inicio</a>
+            <a href="productos.html" class="active">Productos</a>
+            <a href="pc_builder.html">PC Builder</a>
+            <a href="contacto.html">Contacto</a>
           </div>
-        </nav>
-      </div>
-    </header>
-
-    <main class="container py-5">
-      <nav aria-label="breadcrumb" class="mb-4">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="../index.html" class="text-decoration-none text-muted"
-              >Inicio</a
-            >
-          </li>
-          <li class="breadcrumb-item">
-            <a href="productos.html" class="text-decoration-none text-muted"
-              >Productos</a
-            >
-          </li>
-          <li
-            class="breadcrumb-item active fw-bold text-primary"
-            aria-current="page"
-            id="breadcrumb-name"
-          >
-            Cargando...
-          </li>
-        </ol>
-      </nav>
-
-      <div class="card border-0 shadow-lg rounded-4 overflow-hidden mb-5">
-        <div class="row g-0">
-          <div
-            class="col-lg-6 bg-white d-flex align-items-center justify-content-center p-5 border-end position-relative"
-          >
-            <span
-              class="position-absolute top-0 start-0 m-4 badge bg-danger rounded-pill px-3 py-2 fs-6 shadow-sm"
-              >Destacado 🔥</span
-            >
-            <img
-              id="det-imagen"
-              src=""
-              class="img-fluid"
-              alt="Cargando..."
-              style="max-height: 450px; object-fit: contain"
-            />
-          </div>
-
-          <div class="col-lg-6 p-5 bg-body d-flex flex-column">
-            <div class="mb-auto">
-              <div class="d-flex align-items-center gap-2 mb-2">
-                <small
-                  class="text-muted text-uppercase fw-bold tracking-wide"
-                  id="det-marca"
-                  >Marca</small
-                >
-              </div>
-
-              <h1 class="display-6 fw-bold mb-3 text-dark" id="det-nombre">
-                Cargando...
-              </h1>
-
-              <div class="mb-4">
-                <span
-                  class="badge bg-light text-dark border me-1 category-badge"
-                  id="det-categoria"
-                  >Categoría</span
-                >
-              </div>
-
-              <div
-                class="p-3 bg-light rounded-3 mb-4 border-start border-4 border-primary"
-              >
-                <h2 class="text-primary fw-bold mb-0 display-5" id="det-precio">
-                  $0.00
-                </h2>
-                <small class="text-muted"
-                  >Precio exclusivo web. Incluye IVA.</small
-                >
-              </div>
-
-              <p class="text-secondary lead fs-6 mb-4" id="det-descripcion">
-                Descripción...
-              </p>
-
-              <div class="row g-3 mb-4">
-                <div class="col-6">
-                  <div class="d-flex align-items-center gap-2 text-muted">
-                    <i class="bi bi-truck fs-4 text-primary"></i>
-                    <span class="small lh-1"
-                      >Envío Gratis<br />a todo el país</span
-                    >
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="d-flex align-items-center gap-2 text-muted">
-                    <i class="bi bi-shield-check fs-4 text-primary"></i>
-                    <span class="small lh-1">Garantía<br />de 12 meses</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <hr class="text-muted opacity-25 my-4" />
-
-            <div class="d-grid gap-2 d-md-flex">
-              <a
-                href="#"
-                id="btn-whatsapp"
-                target="_blank"
-                class="btn btn-success btn-lg px-4 flex-grow-1 fw-bold shadow-sm"
-              >
-                <i class="bi bi-whatsapp me-2"></i> Cotizar en WhatsApp
-              </a>
-              <button
-                class="btn btn-outline-primary btn-lg px-4"
-                onclick="window.history.back()"
-              >
-                <i class="bi bi-arrow-left me-2"></i> Volver
-              </button>
-            </div>
+          <div class="search-box">
+            <i class="bi bi-search search-icon-inner"></i>
+            <form class="d-flex" role="search">
+              <input class="form-control" type="search" placeholder="Buscar producto..." aria-label="Buscar" />
+            </form>
           </div>
         </div>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- ══ BREADCRUMB BAR ════════════════════════════════════ -->
+      <div style="background: var(--bg-2); border-bottom: 1px solid var(--bdr-2); padding: 14px 0;">
+        <div class="container">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
+              <li class="breadcrumb-item"><a href="productos.html">Catálogo</a></li>
+              <li class="breadcrumb-item active" id="breadcrumb-product">Cargando...</li>
+            </ol>
+          </nav>
+        </div>
       </div>
-    </main>
 
-    <footer class="footer text-light pt-5 pb-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 mb-4 text-center">
-            <h4 class="fw-bold">Tienda Miaow</h4>
-            <p>
-              Tu tienda de tecnología favorita. Componentes, periféricos y todo
-              lo que necesitas para armar tu setup perfecto.
-            </p>
+      <!-- ══ PRODUCT DETAIL ════════════════════════════════════ -->
+      <section style="padding: 56px 0 80px;">
+        <div class="container">
 
-            <div class="social-icons mt-3">
-              <a
-                href="https://www.facebook.com/profile.php?id=100063507426427"
-                target="_blank"
-                ><i class="bi bi-facebook"></i
-              ></a>
-              <a href="https://www.instagram.com/tiendas_miaow/" target="_blank"
-                ><i class="bi bi-instagram"></i
-              ></a>
-              <a
-                href="https://www.tiktok.com/@tiendas.miaow?is_from_webapp=1&sender_device=pc"
-                target="_blank"
-                ><i class="bi bi-tiktok"></i
-              ></a>
+          <!-- Loading state -->
+          <div id="detail-loading" class="loading-state" style="min-height: 60vh;">
+            <div class="spinner-brand"></div>
+            <p>Cargando producto...</p>
+          </div>
+
+          <!-- Error state -->
+          <div id="detail-error" class="error-state" style="display:none; min-height: 60vh;">
+            <i class="bi bi-exclamation-circle" style="color: var(--pink);"></i>
+            <h3 style="font-family: var(--f-heading);">Producto no encontrado</h3>
+            <p style="color: var(--txt-2);">El producto que buscas no existe o fue retirado.</p>
+            <a href="productos.html" class="btn btn-brand">Ver catálogo</a>
+          </div>
+
+          <!-- Product content (hidden until loaded) -->
+          <div id="detail-content" style="display:none;">
+            <div class="detail-container">
+
+              <!-- Left: Image panel -->
+              <div>
+                <div class="detail-img-panel">
+                  <div class="detail-img-inner" id="detail-img-inner">
+                    <span class="detail-badge">Nuevo</span>
+                    <img id="detail-img" src="" alt="Producto" />
+                  </div>
+                  <!-- Quick specs strip -->
+                  <div style="padding: 20px 28px; border-top: 1px solid var(--bdr-2); display: flex; gap: 24px; background: var(--bg-3);">
+                    <div style="text-align:center; flex: 1;">
+                      <i class="bi bi-shield-check" style="font-size: 1.25rem; color: var(--green); display:block; margin-bottom: 4px;"></i>
+                      <span style="font-size: .75rem; color: var(--txt-3); font-weight: 600; text-transform: uppercase; letter-spacing: .06em;">Garantía</span>
+                    </div>
+                    <div style="text-align:center; flex: 1;">
+                      <i class="bi bi-truck" style="font-size: 1.25rem; color: var(--cyan); display:block; margin-bottom: 4px;"></i>
+                      <span style="font-size: .75rem; color: var(--txt-3); font-weight: 600; text-transform: uppercase; letter-spacing: .06em;">Envío</span>
+                    </div>
+                    <div style="text-align:center; flex: 1;">
+                      <i class="bi bi-box-seam" style="font-size: 1.25rem; color: var(--amber); display:block; margin-bottom: 4px;"></i>
+                      <span style="font-size: .75rem; color: var(--txt-3); font-weight: 600; text-transform: uppercase; letter-spacing: .06em;">Original</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: Info panel -->
+              <div class="detail-info">
+                <p class="detail-brand" id="detail-marca">Marca</p>
+                <h1 class="detail-name" id="detail-nombre">Nombre del Producto</h1>
+                <span class="detail-cat-badge" id="detail-categoria">
+                  <i class="bi bi-tag"></i>
+                  Categoría
+                </span>
+
+                <!-- Price -->
+                <div class="detail-price-box">
+                  <div>
+                    <p class="detail-price-note">Precio final</p>
+                    <div class="detail-price" id="detail-precio">$0</div>
+                  </div>
+                  <div style="margin-bottom: 4px; margin-left: auto; display: flex; align-items: center; gap: 6px;">
+                    <span class="hero-badge" style="margin: 0; font-size: .7rem;">
+                      <i class="bi bi-check-circle-fill"></i>
+                      En Stock
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Description -->
+                <p class="detail-desc" id="detail-descripcion">Descripción del producto.</p>
+
+                <!-- Perks -->
+                <div class="detail-perks">
+                  <div class="detail-perk">
+                    <i class="bi bi-shield-check"></i>
+                    <div>
+                      <strong style="color: var(--txt-1); font-size: .85rem; display:block; margin-bottom: 2px;">Garantía Oficial</strong>
+                      <span style="font-size: .8rem;">Respaldado por el fabricante</span>
+                    </div>
+                  </div>
+                  <div class="detail-perk">
+                    <i class="bi bi-truck" style="color: var(--cyan);"></i>
+                    <div>
+                      <strong style="color: var(--txt-1); font-size: .85rem; display:block; margin-bottom: 2px;">Envío Rápido</strong>
+                      <span style="font-size: .8rem;">A todo Colombia</span>
+                    </div>
+                  </div>
+                  <div class="detail-perk">
+                    <i class="bi bi-headset" style="color: var(--green);"></i>
+                    <div>
+                      <strong style="color: var(--txt-1); font-size: .85rem; display:block; margin-bottom: 2px;">Asesoría Técnica</strong>
+                      <span style="font-size: .8rem;">Expertos disponibles</span>
+                    </div>
+                  </div>
+                  <div class="detail-perk">
+                    <i class="bi bi-receipt" style="color: var(--amber);"></i>
+                    <div>
+                      <strong style="color: var(--txt-1); font-size: .85rem; display:block; margin-bottom: 2px;">Factura Electrónica</strong>
+                      <span style="font-size: .8rem;">Incluida con tu compra</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- CTA buttons -->
+                <div class="d-flex flex-column gap-3">
+                  <a id="btn-whatsapp" href="#" target="_blank" class="btn btn-whatsapp" style="padding: 15px; justify-content: center; font-size: 1rem;">
+                    <i class="bi bi-whatsapp" style="font-size: 1.2rem;"></i>
+                    Consultar por WhatsApp
+                  </a>
+                  <div class="d-flex gap-2">
+                    <a href="productos.html" class="btn btn-ghost flex-1" style="justify-content: center;">
+                      <i class="bi bi-arrow-left"></i>
+                      Volver al catálogo
+                    </a>
+                    <a href="pc_builder.html" class="btn btn-outline-brand flex-1" style="justify-content: center;">
+                      <i class="bi bi-cpu"></i>
+                      PC Builder
+                    </a>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
 
-          <div class="col-md-4 mb-4 text-center">
-            <h5 class="fw-bold">Navegación</h5>
+        </div>
+      </section>
+
+      <!-- ══ RELATED PRODUCTS ════════════════════════════════════ -->
+      <section class="related-section" id="related-section" style="display:none;">
+        <div class="container">
+          <div class="d-flex align-items-center justify-content-between mb-4" style="margin-bottom: 36px;">
+            <div>
+              <div class="section-label">Productos Relacionados</div>
+              <h2 class="section-title">También te puede <span class="text-gradient">interesar</span></h2>
+            </div>
+            <a href="productos.html" class="btn btn-ghost" style="font-size: .875rem;">
+              Ver todo <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+          <div id="related-grid" class="row g-4">
+            <!-- JS populated -->
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ══ FOOTER ══════════════════════════════════════════════ -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-brand-name">Tienda Miaow 🐱</div>
+            <p class="mb-4">Tu tienda de hardware premium en Cali.</p>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/profile.php?id=100063507426427" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/tiendas_miaow/" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.tiktok.com/@tiendas.miaow" target="_blank" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+              <a href="https://wa.me/573175067243" target="_blank" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 col-6">
+            <h5>Navegación</h5>
             <ul class="footer-links">
               <li><a href="../index.html">Inicio</a></li>
               <li><a href="productos.html">Productos</a></li>
               <li><a href="pc_builder.html">PC Builder</a></li>
               <li><a href="contacto.html">Contacto</a></li>
+            </ul>
           </div>
-
-          <div class="col-md-4 mb-4 text-center">
-            <h5 class="fw-bold">Contáctanos</h5>
-            <p>Email: soporte.tiendamiaow@gmail.com</p>
-            <p>Tel: +57 317 506 7243</p>
-            <p>Horario: Todos los dias / 9am – 6pm</p>
+          <div class="col-lg-6 col-md-6">
+            <h5>Contacto</h5>
+            <ul class="footer-links">
+              <li><a href="mailto:soporte.tiendamiaow@gmail.com"><i class="bi bi-envelope me-2"></i>soporte.tiendamiaow@gmail.com</a></li>
+              <li><a href="tel:+573175067243"><i class="bi bi-telephone me-2"></i>+57 317 506 7243</a></li>
+              <li><a href="#"><i class="bi bi-geo-alt me-2"></i>Cali, Colombia</a></li>
+            </ul>
           </div>
         </div>
-
-        <hr class="mt-3 mb-3 opacity-25" />
-
-        <div class="text-center small">
-          © 2025 Tienda Miaow — Todos los derechos reservados.
-        </div>
+        <hr class="footer-divider" />
+        <p class="footer-copy text-center mb-0">© 2025 Tienda Miaow — Todos los derechos reservados.</p>
       </div>
     </footer>
-    <script src="../js/detalle_producto.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/main.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
+    <script src="../js/detalle_producto.js"></script>
   </body>
 </html>
