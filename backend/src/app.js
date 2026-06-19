@@ -1,21 +1,24 @@
-// backend/app.js
-
 import express from "express";
 import cors from "cors";
+import dotenv from "dotenv";
 import router from "./routes/index.js";
+
+dotenv.config();
 
 const app = express();
 
-// 🛑 AQUÍ PONES TU URL DE VERCEL (sin barra al final)
 const allowedOrigins = [
-  "https://tiendamiaow.vercel.app", // Tu frontend en producción
-  "http://localhost:5500", // Tu entorno local (opcional)
+  "https://tiendamiaow.vercel.app",
+  "http://localhost:5500",
   "http://127.0.0.1:5500",
 ];
 
+if (process.env.FRONTEND_URL) {
+  allowedOrigins.push(process.env.FRONTEND_URL);
+}
+
 const corsOptions = {
   origin: function (origin, callback) {
-    // Permitir solicitudes sin origen (como Postman) o si está en la lista
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {

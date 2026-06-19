@@ -3,21 +3,20 @@ const API_BASE_URL = window.location.hostname === "localhost" || window.location
   : "https://tiendamiaow-production.up.railway.app";
 const PRODUCTOS_ENDPOINT = "/api/productos";
 
-const productosContainer = document.getElementById("productos-container");
-const loadingMessage = document.getElementById("loading-message");
-const errorMessage = document.getElementById("error-message");
-const noResultsMessage = document.getElementById("no-results-message");
+const productGrid = document.getElementById("product-grid");
+const loadingState = document.getElementById("loading-state");
+const errorState = document.getElementById("error-state");
+const noResultsState = document.getElementById("no-results-state");
 
-// Filtros
-const filterMarca = document.getElementById("filter-marca");
-const filterCategoria = document.getElementById("filter-categoria"); // NUEVO
-const searchInput = document.getElementById("search-input");
-const sortOrder = document.getElementById("sort-order");
-const resetButton = document.getElementById("reset-filters");
+const searchInput = document.getElementById("busqueda");
+const filterCategoria = document.getElementById("categoria");
+const filterMarca = document.getElementById("marca");
+const sortOrder = document.getElementById("orden");
+const resetButton = document.getElementById("btn-reset");
+const resultsCount = document.getElementById("results-count");
 
 let allProducts = [];
 
-// Diccionario para nombres bonitos de categorías
 const categoryNames = {
   cpu: "Procesadores",
   gpu: "Tarjetas Gráficas",
@@ -28,32 +27,45 @@ const categoryNames = {
   case: "Gabinetes",
 };
 
-// 1. RENDERIZADO TARJETA
 function createProductCard(producto) {
   const formattedPrice = parseFloat(producto.precio).toFixed(2);
+  const specs = producto.especificaciones || {};
+  let specSummary = "";
+  if (specs.nucleos) specSummary += `${specs.nucleos} núcleos · `;
+  if (specs.frecuencia) specSummary += `${specs.frecuencia} · `;
+  if (specs.capacidad) specSummary += `${specs.capacidad} · `;
+  if (specs.vram) specSummary += `${specs.vram} · `;
+  if (specs.almacenamiento) specSummary += `${specs.almacenamiento} · `;
+  if (specs.potencia) specSummary += `${specs.potencia} · `;
+  if (specs.factor) specSummary += `${specs.factor} · `;
+  if (specSummary) specSummary = specSummary.slice(0, -3);
+
+  const stockStatus = producto.stock > 0
+    ? '<span class="badge" style="background: rgba(16,185,129,.15); color: var(--green); font-size: .65rem; font-weight: 600; padding: 3px 10px; border-radius: var(--r-full);">En Stock</span>'
+    : '<span class="badge" style="background: rgba(236,72,153,.15); color: var(--pink); font-size: .65rem; font-weight: 600; padding: 3px 10px; border-radius: var(--r-full);">Sin Stock</span>';
 
   return `
     <div class="col">
-      <div class="card h-100 shadow-sm border-0 product-card-hover" style="border: 1px solid rgba(143, 116, 197, 0.08) !important; border-radius: 16px; overflow: hidden; background: #ffffff;">
-        <a href="detalle_producto.html?id=${producto.id}" class="text-decoration-none text-dark d-block p-3" style="background: #fafafa; border-bottom: 1px solid rgba(0,0,0,0.02);">
-          <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}" style="height: 180px; object-fit: contain; transition: transform 0.3s ease;">
+      <div class="product-card">
+        <a href="detalle_producto.html?id=${producto.id}" class="product-card-img-wrap text-decoration-none">
+          <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy" />
         </a>
-        <div class="card-body d-flex flex-column p-4">
-          <div class="d-flex align-items-center mb-2">
-            <span class="badge bg-primary bg-opacity-10 text-primary text-uppercase font-monospace" style="font-size: 0.72rem; letter-spacing: 0.5px;">${producto.marca}</span>
+        <div class="product-card-body">
+          <span class="product-brand-tag">${producto.marca}</span>
+          <h3 class="product-name">${producto.nombre}</h3>
+          ${specSummary ? `<p style="font-size: .75rem; color: var(--txt-3); margin-bottom: 10px; line-height: 1.4;">${specSummary}</p>` : ''}
+          <div class="product-price">$${formattedPrice}</div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+            ${stockStatus}
           </div>
-          <h5 class="card-title fw-bold mb-3 text-dark" style="font-size: 0.98rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; height: 2.8rem;">${producto.nombre}</h5>
-          
-          <div class="mt-auto pt-2">
-            <p class="card-text text-primary fs-4 fw-bold mb-3">$${formattedPrice}</p>
-            <div class="d-grid gap-2">
-              <a href="detalle_producto.html?id=${producto.id}" class="btn btn-primary rounded-pill py-2 small-btn" style="font-size: 0.9rem;">
-                Ver Detalles <i class="bi bi-eye ms-1"></i>
-              </a>
-              <a href="https://wa.me/573175067243?text=Hola%20Tienda%20Miaow!%20%F0%9F%90%B1%20Quiero%20cotizar%20este%20producto:%20*${encodeURIComponent(producto.nombre)}*%20(${producto.marca})%20por%20$${formattedPrice}." target="_blank" class="btn btn-outline-success rounded-pill py-2 small-btn" style="font-size: 0.9rem; background-color: transparent !important; color: #198754 !important; border: 1px solid #198754 !important;">
-                Cotizar <i class="bi bi-whatsapp ms-1"></i>
-              </a>
-            </div>
+          <div class="product-actions">
+            <a href="detalle_producto.html?id=${producto.id}" class="btn btn-ghost" style="font-size: .8rem; padding: 9px 14px; justify-content: center;">
+              <i class="bi bi-eye"></i>
+            </a>
+            <button class="btn-add-cart" onclick="window.addToCart(${producto.id}, '${producto.nombre.replace(/'/g, "\\'")}', ${producto.precio}, '${producto.imagen}')">
+              <i class="bi bi-cart-plus"></i>
+              Agregar
+            </button>
           </div>
         </div>
       </div>
@@ -62,23 +74,29 @@ function createProductCard(producto) {
 }
 
 function displayProducts(productsToDisplay) {
-  productosContainer.innerHTML = "";
-  noResultsMessage.classList.add("d-none");
+  productGrid.innerHTML = "";
+
+  if (loadingState) loadingState.classList.add("d-none");
+  if (errorState) errorState.classList.add("d-none");
 
   if (!Array.isArray(productsToDisplay) || productsToDisplay.length === 0) {
-    noResultsMessage.classList.remove("d-none");
-    noResultsMessage.innerHTML = `<i class="bi bi-search fs-1 d-block mb-2 text-warning"></i><h5 class="fw-bold">No encontramos productos</h5>`;
+    if (noResultsState) noResultsState.classList.remove("d-none");
+    if (resultsCount) resultsCount.textContent = "0 productos encontrados";
     return;
   }
 
+  if (noResultsState) noResultsState.classList.add("d-none");
+
   let html = "";
   productsToDisplay.forEach((p) => (html += createProductCard(p)));
-  productosContainer.innerHTML = html;
+  productGrid.innerHTML = html;
+
+  if (resultsCount) {
+    resultsCount.textContent = `${productsToDisplay.length} producto${productsToDisplay.length !== 1 ? 's' : ''} encontrado${productsToDisplay.length !== 1 ? 's' : ''}`;
+  }
 }
 
-// 2. LLENAR FILTROS (MARCA Y CATEGORÍA)
 function populateFilters(products) {
-  // Marcas
   const marcas = [...new Set(products.map((p) => p.marca))].sort();
   filterMarca.innerHTML = '<option value="">Todas las Marcas</option>';
   marcas.forEach((m) => {
@@ -88,28 +106,24 @@ function populateFilters(products) {
     filterMarca.appendChild(option);
   });
 
-  // Categorías (NUEVO)
   const categorias = [...new Set(products.map((p) => p.categoria))].sort();
   filterCategoria.innerHTML = '<option value="">Todas las Categorías</option>';
   categorias.forEach((c) => {
     const option = document.createElement("option");
     option.value = c;
-    // Usar nombre bonito si existe, sino el código
-    option.textContent = categoryNames[c] || c.toUpperCase();
+    option.textContent = categoryNames[c] || c.charAt(0).toUpperCase() + c.slice(1);
     filterCategoria.appendChild(option);
   });
 }
 
-// 3. FILTRAR Y ORDENAR
 function applyFiltersAndSort() {
   let filtered = [...allProducts];
 
-  const search = searchInput.value.toLowerCase();
-  const brand = filterMarca.value;
-  const category = filterCategoria.value; // NUEVO
-  const sort = sortOrder.value;
+  const search = searchInput ? searchInput.value.toLowerCase() : "";
+  const brand = filterMarca ? filterMarca.value : "";
+  const category = filterCategoria ? filterCategoria.value : "";
+  const sort = sortOrder ? sortOrder.value : "";
 
-  // Filtro Texto
   if (search) {
     filtered = filtered.filter(
       (p) =>
@@ -118,33 +132,32 @@ function applyFiltersAndSort() {
     );
   }
 
-  // Filtro Marca
   if (brand) {
     filtered = filtered.filter((p) => p.marca === brand);
   }
 
-  // Filtro Categoría (NUEVO)
   if (category) {
     filtered = filtered.filter((p) => p.categoria === category);
   }
 
-  // Ordenar
-  if (sort === "price_asc") {
+  if (sort === "precio-asc") {
     filtered.sort((a, b) => parseFloat(a.precio) - parseFloat(b.precio));
-  } else if (sort === "price_desc") {
+  } else if (sort === "precio-desc") {
     filtered.sort((a, b) => parseFloat(b.precio) - parseFloat(a.precio));
-  } else if (sort === "name_asc") {
+  } else if (sort === "nombre-asc") {
     filtered.sort((a, b) => a.nombre.localeCompare(b.nombre));
+  } else if (sort === "nombre-desc") {
+    filtered.sort((a, b) => b.nombre.localeCompare(a.nombre));
   }
 
   displayProducts(filtered);
 }
 
-// 4. CARGA INICIAL
 async function cargarTodosLosProductos() {
-  loadingMessage.classList.remove("d-none");
-  errorMessage.classList.add("d-none");
-  productosContainer.innerHTML = "";
+  if (loadingState) loadingState.classList.remove("d-none");
+  if (noResultsState) noResultsState.classList.add("d-none");
+  if (errorState) errorState.classList.add("d-none");
+  productGrid.innerHTML = "";
 
   try {
     const response = await fetch(`${API_BASE_URL}${PRODUCTOS_ENDPOINT}`);
@@ -152,55 +165,45 @@ async function cargarTodosLosProductos() {
 
     const data = await response.json();
 
-    // Normalizar a Array
-    if (Array.isArray(data)) {
-      allProducts = data;
-    } else if (data && data.id) {
-      allProducts = [data];
-    } else {
-      allProducts = [];
-    }
+    allProducts = Array.isArray(data) ? data : (data && data.id ? [data] : []);
 
-    loadingMessage.classList.add("d-none");
+    if (loadingState) loadingState.classList.add("d-none");
 
     if (allProducts.length === 0) {
-      noResultsMessage.classList.remove("d-none");
+      displayProducts([]);
       return;
     }
 
-    populateFilters(allProducts); // Llenar selects
+    populateFilters(allProducts);
 
-    // Verificar si venimos del buscador global
     const urlParams = new URLSearchParams(window.location.search);
     const busquedaGlobal = urlParams.get("q");
-    if (busquedaGlobal) {
+    if (busquedaGlobal && searchInput) {
       searchInput.value = busquedaGlobal;
       window.history.replaceState({}, document.title, window.location.pathname);
     }
 
     applyFiltersAndSort();
 
-    attachEventListeners();
+    if (searchInput) searchInput.addEventListener("input", applyFiltersAndSort);
+    if (filterMarca) filterMarca.addEventListener("change", applyFiltersAndSort);
+    if (filterCategoria) filterCategoria.addEventListener("change", applyFiltersAndSort);
+    if (sortOrder) sortOrder.addEventListener("change", applyFiltersAndSort);
+
+    if (resetButton) {
+      resetButton.addEventListener("click", () => {
+        if (searchInput) searchInput.value = "";
+        if (filterMarca) filterMarca.value = "";
+        if (filterCategoria) filterCategoria.value = "";
+        if (sortOrder) sortOrder.value = "";
+        applyFiltersAndSort();
+      });
+    }
   } catch (error) {
     console.error(error);
-    loadingMessage.classList.add("d-none");
-    errorMessage.classList.remove("d-none");
+    if (loadingState) loadingState.classList.add("d-none");
+    if (errorState) errorState.classList.remove("d-none");
   }
-}
-
-function attachEventListeners() {
-  searchInput.addEventListener("input", applyFiltersAndSort);
-  filterMarca.addEventListener("change", applyFiltersAndSort);
-  filterCategoria.addEventListener("change", applyFiltersAndSort); // NUEVO
-  sortOrder.addEventListener("change", applyFiltersAndSort);
-
-  resetButton.addEventListener("click", () => {
-    searchInput.value = "";
-    filterMarca.value = "";
-    filterCategoria.value = ""; // NUEVO
-    sortOrder.value = "default";
-    applyFiltersAndSort();
-  });
 }
 
 document.addEventListener("DOMContentLoaded", cargarTodosLosProductos);

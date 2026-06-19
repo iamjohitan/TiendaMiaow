@@ -28,11 +28,17 @@
             <a href="pc_builder.html">PC Builder</a>
             <a href="contacto.html">Contacto</a>
           </div>
-          <div class="search-box">
-            <i class="bi bi-search search-icon-inner"></i>
-            <form class="d-flex" role="search">
-              <input class="form-control" type="search" placeholder="Buscar producto..." aria-label="Buscar" />
-            </form>
+          <div class="navbar-actions">
+            <div class="search-box">
+              <i class="bi bi-search search-icon-inner"></i>
+              <form class="d-flex" role="search">
+                <input class="form-control" type="search" placeholder="Buscar producto..." aria-label="Buscar" />
+              </form>
+            </div>
+            <a class="cart-trigger" href="#" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-label="Carrito">
+              <i class="bi bi-cart3"></i>
+              <span class="cart-badge" id="cart-count">0</span>
+            </a>
           </div>
         </div>
       </nav>
@@ -116,12 +122,15 @@
                     <div class="detail-price" id="detail-precio">$0</div>
                   </div>
                   <div style="margin-bottom: 4px; margin-left: auto; display: flex; align-items: center; gap: 6px;">
-                    <span class="hero-badge" style="margin: 0; font-size: .7rem;">
+                    <span id="detail-stock-badge" class="hero-badge" style="margin: 0; font-size: .7rem;">
                       <i class="bi bi-check-circle-fill"></i>
                       En Stock
                     </span>
                   </div>
                 </div>
+
+                <!-- Specs -->
+                <div id="detail-specs"></div>
 
                 <!-- Description -->
                 <p class="detail-desc" id="detail-descripcion">Descripción del producto.</p>
@@ -160,10 +169,16 @@
 
                 <!-- CTA buttons -->
                 <div class="d-flex flex-column gap-3">
-                  <a id="btn-whatsapp" href="#" target="_blank" class="btn btn-whatsapp" style="padding: 15px; justify-content: center; font-size: 1rem;">
-                    <i class="bi bi-whatsapp" style="font-size: 1.2rem;"></i>
-                    Consultar por WhatsApp
-                  </a>
+                  <div class="d-flex gap-2">
+                    <button id="btn-add-cart-detail" class="btn btn-add-cart flex-1" style="padding: 15px; justify-content: center; font-size: 1rem;">
+                      <i class="bi bi-cart-plus" style="font-size: 1.2rem;"></i>
+                      Agregar al Carrito
+                    </button>
+                    <a id="btn-whatsapp" href="#" target="_blank" class="btn btn-whatsapp flex-1" style="padding: 15px; justify-content: center; font-size: 1rem;">
+                      <i class="bi bi-whatsapp" style="font-size: 1.2rem;"></i>
+                      WhatsApp
+                    </a>
+                  </div>
                   <div class="d-flex gap-2">
                     <a href="productos.html" class="btn btn-ghost flex-1" style="justify-content: center;">
                       <i class="bi bi-arrow-left"></i>
@@ -203,13 +218,31 @@
 
     </main>
 
+    <!-- ══ CART OFFCANVAS ══════════════════════════════════════ -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="cartOffcanvasLabel">
+          <i class="bi bi-cart3 me-2"></i>Tu Carrito
+        </h5>
+        <button type="button" class="btn-close-white-custom" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+      </div>
+      <div class="offcanvas-body" id="cart-offcanvas-body">
+        <div class="cart-empty">
+          <i class="bi bi-bag"></i>
+          <p>Tu carrito está vacío</p>
+          <a href="productos.html" class="btn btn-brand btn-sm">Ver productos</a>
+        </div>
+      </div>
+    </div>
+
     <!-- ══ FOOTER ══════════════════════════════════════════════ -->
     <footer class="footer">
       <div class="container">
         <div class="row g-4">
+          <!-- Brand -->
           <div class="col-lg-4 col-md-6">
             <div class="footer-brand-name">Tienda Miaow 🐱</div>
-            <p class="mb-4">Tu tienda de hardware premium en Cali.</p>
+            <p class="mb-4">Tu tienda de hardware premium en Cali. Componentes originales, precios justos y asesoría de verdad.</p>
             <div class="social-icons">
               <a href="https://www.facebook.com/profile.php?id=100063507426427" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
               <a href="https://www.instagram.com/tiendas_miaow/" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
@@ -217,6 +250,7 @@
               <a href="https://wa.me/573175067243" target="_blank" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
             </div>
           </div>
+          <!-- Nav links -->
           <div class="col-lg-2 col-md-6 col-6">
             <h5>Navegación</h5>
             <ul class="footer-links">
@@ -226,22 +260,38 @@
               <li><a href="contacto.html">Contacto</a></li>
             </ul>
           </div>
-          <div class="col-lg-6 col-md-6">
-            <h5>Contacto</h5>
+          <!-- Categories -->
+          <div class="col-lg-2 col-md-6 col-6">
+            <h5>Categorías</h5>
+            <ul class="footer-links">
+              <li><a href="productos.html">Procesadores</a></li>
+              <li><a href="productos.html">Tarjetas Gráficas</a></li>
+              <li><a href="productos.html">Memorias RAM</a></li>
+              <li><a href="productos.html">Almacenamiento</a></li>
+            </ul>
+          </div>
+          <!-- Contact info -->
+          <div class="col-lg-4 col-md-6">
+            <h5>Contáctanos</h5>
             <ul class="footer-links">
               <li><a href="mailto:soporte.tiendamiaow@gmail.com"><i class="bi bi-envelope me-2"></i>soporte.tiendamiaow@gmail.com</a></li>
               <li><a href="tel:+573175067243"><i class="bi bi-telephone me-2"></i>+57 317 506 7243</a></li>
               <li><a href="#"><i class="bi bi-geo-alt me-2"></i>Cali, Colombia</a></li>
+              <li style="color: var(--txt-3); font-size: .8rem; padding-top: 4px;"><i class="bi bi-clock me-2"></i>Todos los días · 9am – 6pm</li>
             </ul>
           </div>
         </div>
         <hr class="footer-divider" />
-        <p class="footer-copy text-center mb-0">© 2025 Tienda Miaow — Todos los derechos reservados.</p>
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+          <p class="footer-copy mb-0">© 2025 Tienda Miaow — Todos los derechos reservados.</p>
+          <p class="footer-copy mb-0" style="color: var(--txt-3);">Diseñado con ❤️ en Cali, Colombia</p>
+        </div>
       </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/cart.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/detalle_producto.js"></script>
   </body>

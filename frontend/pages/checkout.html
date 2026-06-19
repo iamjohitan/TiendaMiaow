@@ -2,9 +2,9 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <title>Contacto | Tienda Miaow</title>
-    <meta name="description" content="Contáctanos para asesoría personalizada. Estamos en Cali, Colombia, listos para ayudarte a armar tu PC ideal." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout — Tienda Miaow</title>
+    <meta name="description" content="Finaliza tu compra en Tienda Miaow. Completa tus datos y confirma tu pedido." />
     <link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
-    <!-- ══ NAVBAR ══════════════════════════════════════════════ -->
     <header>
       <nav class="navbar" id="main-navbar">
         <div class="navbar-container container">
@@ -25,7 +24,7 @@
             <a href="../index.html">Inicio</a>
             <a href="productos.html">Productos</a>
             <a href="pc_builder.html">PC Builder</a>
-            <a href="contacto.html" class="active">Contacto</a>
+            <a href="contacto.html">Contacto</a>
           </div>
           <div class="navbar-actions">
             <div class="search-box">
@@ -44,108 +43,77 @@
     </header>
 
     <main>
-      <!-- ══ HERO CONTACTO ══════════════════════════════════════ -->
       <section class="hero-products">
         <div class="container position-relative" style="z-index: 1;">
           <nav aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
-              <li class="breadcrumb-item active">Contacto</li>
+              <li class="breadcrumb-item active">Checkout</li>
             </ol>
           </nav>
-          <div class="section-label">Hablemos</div>
-          <h1 class="section-title mb-3">Estamos aquí para <span class="text-gradient">ayudarte</span></h1>
-          <p style="color: var(--txt-2); font-size: 1rem; max-width: 540px;">
-            ¿Dudas sobre tu setup? Escríbenos y te responderemos en menos de 24 horas.
-          </p>
+          <div class="section-label">Finalizar Compra</div>
+          <h1 class="section-title mb-3">Estás a un paso de tu <span class="text-gradient">nuevo hardware</span></h1>
         </div>
       </section>
 
-      <!-- ══ CONTACT FORM ═══════════════════════════════════════ -->
       <section style="padding: 56px 0 80px;">
         <div class="container">
-          <div class="contact-wrapper">
-            <div class="contact-info-panel d-flex flex-column justify-content-between">
-              <div>
-                <h3 class="contact-info-heading">Información de Contacto</h3>
-                <p class="contact-info-desc">
-                  Completa el formulario y nuestro equipo te responderá en menos de 24 horas.
-                </p>
-
-                <div class="info-item">
-                  <i class="bi bi-geo-alt-fill"></i>
-                  <span>Cali, Colombia</span>
-                </div>
-                <div class="info-item">
-                  <i class="bi bi-envelope-fill"></i>
-                  <span>soporte.tiendamiaow@gmail.com</span>
-                </div>
-                <div class="info-item">
-                  <i class="bi bi-telephone-fill"></i>
-                  <span>+57 317 506 7243</span>
-                </div>
-              </div>
-
-              <div class="contact-social-wrap">
-                <p class="contact-social-label">Síguenos:</p>
-                <div class="contact-social d-flex gap-3">
-                  <a href="https://www.facebook.com/profile.php?id=100063507426427" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                  <a href="https://www.instagram.com/tiendas_miaow/" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                  <a href="https://www.tiktok.com/@tiendas.miaow" target="_blank" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="contact-form-panel">
-              <form class="contact-form-inner" id="contact-form">
-                <div class="row g-3">
+          <div class="checkout-container">
+            <div class="checkout-form-card">
+              <h3 style="font-family: var(--f-heading); font-size: 1.2rem; font-weight: 700; margin-bottom: 28px;">
+                <i class="bi bi-person-vcard me-2" style="color: var(--violet-3);"></i>
+                Datos de Envío
+              </h3>
+              <form id="checkout-form" novalidate>
+                <div class="row g-4">
                   <div class="col-md-6">
                     <label class="form-label">Nombre</label>
-                    <div class="input-group">
-                      <span class="input-group-text"><i class="bi bi-person"></i></span>
-                      <input type="text" name="nombre" class="form-control" placeholder="Tu nombre" required />
-                    </div>
+                    <input type="text" id="cf-name" class="form-control" placeholder="Tu nombre" required />
+                    <div class="invalid-feedback-custom">Ingresa tu nombre</div>
                   </div>
-
                   <div class="col-md-6">
                     <label class="form-label">Apellido</label>
-                    <div class="input-group">
-                      <span class="input-group-text"><i class="bi bi-person"></i></span>
-                      <input type="text" name="apellido" class="form-control" placeholder="Tu apellido" required />
-                    </div>
+                    <input type="text" id="cf-lastname" class="form-control" placeholder="Tu apellido" required />
+                    <div class="invalid-feedback-custom">Ingresa tu apellido</div>
                   </div>
-
                   <div class="col-12">
                     <label class="form-label">Correo Electrónico</label>
-                    <div class="input-group">
-                      <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                      <input type="email" name="email" class="form-control" placeholder="ejemplo@correo.com" required />
-                    </div>
+                    <input type="email" id="cf-email" class="form-control" placeholder="ejemplo@correo.com" required />
+                    <div class="invalid-feedback-custom">Ingresa un email válido</div>
                   </div>
-
                   <div class="col-12">
-                    <label class="form-label">Asunto</label>
-                    <div class="input-group">
-                      <span class="input-group-text"><i class="bi bi-chat-left-text"></i></span>
-                      <input type="text" name="asunto" class="form-control" placeholder="¿En qué podemos ayudarte?" required />
-                    </div>
+                    <label class="form-label">Dirección de Envío</label>
+                    <input type="text" id="cf-address" class="form-control" placeholder="Calle, número, ciudad, departamento" required />
+                    <div class="invalid-feedback-custom">Ingresa tu dirección completa</div>
                   </div>
-
                   <div class="col-12">
-                    <label class="form-label">Mensaje</label>
-                    <div class="input-group">
-                      <span class="input-group-text align-items-start pt-2"><i class="bi bi-pencil"></i></span>
-                      <textarea name="mensaje" class="form-control" rows="4" placeholder="Escribe aquí..." required></textarea>
-                    </div>
-                  </div>
-
-                  <div class="col-12 mt-3">
-                    <button type="submit" class="btn btn-brand contact-submit-btn">
-                      Enviar Mensaje <i class="bi bi-send-fill ms-2"></i>
-                    </button>
+                    <label class="form-label">Notas adicionales (opcional)</label>
+                    <textarea id="cf-notes" class="form-control" rows="3" placeholder="Ej: prefiero pago en efectivo..."></textarea>
                   </div>
                 </div>
               </form>
+            </div>
+
+            <div class="checkout-summary-card">
+              <h3 style="font-family: var(--f-heading); font-size: 1.1rem; font-weight: 700; margin-bottom: 20px;">
+                <i class="bi bi-receipt me-2" style="color: var(--violet-3);"></i>
+                Resumen del Pedido
+              </h3>
+              <div id="checkout-items">
+                <p style="color: var(--txt-3); font-size: .85rem; text-align: center; padding: 20px 0;">Tu carrito está vacío</p>
+              </div>
+              <div class="checkout-total-row">
+                <span class="checkout-total-label">Total</span>
+                <span class="checkout-total-amount" id="checkout-total">$0.00</span>
+              </div>
+              <button id="btn-pay" class="btn btn-brand w-100 mt-4" style="padding: 15px; justify-content: center; font-size: 1rem;" disabled>
+                <i class="bi bi-shield-check me-2"></i>
+                Pagar Ahora
+              </button>
+              <p style="font-size: .75rem; color: var(--txt-3); text-align: center; margin-top: 12px;">
+                <i class="bi bi-lock me-1"></i>
+                Simulación — No se realizará un cobro real
+              </p>
             </div>
           </div>
         </div>
@@ -155,9 +123,7 @@
     <!-- ══ CART OFFCANVAS ══════════════════════════════════════ -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="cartOffcanvasLabel">
-          <i class="bi bi-cart3 me-2"></i>Tu Carrito
-        </h5>
+        <h5 class="offcanvas-title" id="cartOffcanvasLabel"><i class="bi bi-cart3 me-2"></i>Tu Carrito</h5>
         <button type="button" class="btn-close-white-custom" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
       </div>
       <div class="offcanvas-body" id="cart-offcanvas-body">
@@ -169,7 +135,6 @@
       </div>
     </div>
 
-    <!-- ══ FOOTER ══════════════════════════════════════════════ -->
     <footer class="footer">
       <div class="container">
         <div class="row g-4">
@@ -227,6 +192,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/cart.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/contacto.js"></script>
+    <script src="../js/checkout.js"></script>
   </body>
 </html>
