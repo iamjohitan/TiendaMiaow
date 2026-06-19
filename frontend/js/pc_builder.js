@@ -1,6 +1,6 @@
 const API_BASE_URL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:"
   ? "http://localhost:4000"
-  : "https://tiendamiaow-production.up.railway.app";
+  : "https://tienda-miaow-backend.onrender.com";
 const API_URL = `${API_BASE_URL}/api/productos`;
 
 let build = { cpu: null, mobo: null, ram: null, gpu: null, storage: null, psu: null, case: null };

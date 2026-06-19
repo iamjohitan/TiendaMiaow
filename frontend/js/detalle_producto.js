@@ -1,6 +1,6 @@
 const API_BASE_URL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:"
   ? "http://localhost:4000"
-  : "https://tiendamiaow-production.up.railway.app";
+  : "https://tienda-miaow-backend.onrender.com";
 
 const params = new URLSearchParams(window.location.search);
 const productId = params.get("id");

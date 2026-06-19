@@ -1,6 +1,6 @@
 const RAILWAY_API_URL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:"
   ? "http://localhost:4000"
-  : "https://tiendamiaow-production.up.railway.app";
+  : "https://tienda-miaow-backend.onrender.com";
 const CONTACT_ENDPOINT = "/api/contacto";
 
 const contactForm = document.querySelector(".contact-form-inner");
